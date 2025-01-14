@@ -1,0 +1,210 @@
+\input{/Users/daniel/github/config/preamble.sty}%This is available at github.com/danimalabares/config
+\input{/Users/daniel/github/config/thms-eng.sty}%This is available at github.com/danimalabares/config
+
+%\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+%\addbibresource{/Users/daniel/github/config/bibliography.bib}
+
+\begin{document}
+\bibliographystyle{alpha}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		 \hfill Daniel González Casanova Azuela
+		
+		{\small \hfill\href{https://github.com/danimalabares/}{github.com/danimalabares/}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Complex surfaces}
+
+\section{Lecture 1: Kodaira dimension and Hopf manifolds}
+
+\subsection{Outline}
+\begin{enumerate}
+\item Kodaira dimension definition: the function \(P(N)=H^{0}(K^N)\) is polynomial (so probably \(h\) rathen than \(H\) right?). The degree  \(\kappa(M)\) is called \textit{\textbf{Kodaira dimension}} of \(M\). If \(P\) is identically 0, we set \(\kappa(M)=-\infty\).
+\item Nilmanifolds and solvmanifolds (quotients of (solvable) Lie groups.
+\item Kodaira surface definition (it's a nilmanifold).
+\item Minimal models. A complex surface is \textit{\textbf{minimal}} if it does not contain a smooth rational curve with self-intersection \(-1\). Thorem by Hartshorne: for any complex surface \(M\) there exists a minimal surface \(M_1\) and a holomorphic, bimeromorphic map \(M \to M_1\). \(M_1\) is called a \textit{\textbf{minimal model for \(M\).}}
+\item Kodaira theorem: a complex surface is projective iaotfh: (i) field o meromorphic functions has trascendental dimension 2, (ii)  \(M\) admits a holomorphic line bundle \(L\) with \(c_1(L)^2>0\), (iii) the Neron-Severy lattice of \(M\), \(\operatorname{NS}(M):=H^{1,1}(M)\cap H^{2}(M,\mathbb{Z})\), contains a class with positive self-intersection. 
+\item Class VII and \(\operatorname{V I I}_0\) surfaces definition.
+\item Hopf manifolds (Hopf manifolds are \(\operatorname{  V I I}_0\)).
+\end{enumerate}
+
+\subsection{Kodaira-Enriques classification for non-algebraic surfaces: constructions and examples}
+
+\begin{itemize}
+\item \textit{\textbf{(Primary) Kodaira surface}} can be defined as \(M:=G/\Gamma\) with the complex structure defined by the subalgebra \(\mathfrak{g}^{1,0}:=\left<x+\sqrt{-1}y,z+\sqrt{-1}t\right>\), which is actually abelian.
+\end{itemize}
+
+\subsection{Holomorphic contractions and Hopf manifolds}
+
+\textit{\textbf{Hopf manifolds}} are quotients \(\mathbb{C}^\setminus\{0\}/ \left<\gamma\right>\) where \(\gamma\) is a \textit{\textbf{contraction}}, a function that puts any compact set of \(M\) inside any neighbourhood of any given points after a finite number of iterations. So for example \(\gamma(z)=\frac{1}{2}z\) and then the Hopf manifold consists of the orbits of every point, which are discrete sets within the rays of every point. In fact, every orbit rpeats over and over so that there is one representative in the circle \(S^1\), so that in fact this Hopf manifold is \(S^1 \times S^1\). In general, a Hopf manifold \(H\) is called \textit{\textbf{linear Hopf manifold}}if  \(\gamma\) is linear, and \textit{\textbf{classical Hopf manifold}} if \(\gamma = \lambda \operatorname{Id}\).
+
+\begin{prop}\leavevmode
+	A Hopf manifold is diffeomorphic to \(S^1 \times S^{2n-1}\).
+\end{prop}
+
+\begin{proof}\leavevmode
+If \(H\) is classical, it's simple; if its linear, approximate by classical; in general approximate by linear.
+\end{proof}
+
+A \textit{\textbf{Class VII}} surface (also called Kodaira class VII surface) is a complex surface with \(\kappa(M)=\infty\) and first betty number \(b_1(M)=1\). Minimal class VII are called \textit{\textbf{class \(\operatorname{V I I}_0\) surfaces}}.
+
+A \textit{\textbf{primary Hopf surface}} is a Hopf manifold of dimension 2. A \textit{\textbf{secondary Hopf surface is a quotient of a primary Hopf surface \(H\) by a finite group acting freely and holomorphically on \(H\)}}.
+
+\begin{claim}\leavevmode
+	Hopf surfaces are class \(\operatorname{V I I}_0\).
+\end{claim}
+
+\section{Lecture 2: Hopf manifolds and algebraic cones}
+
+\subsection{Algebraic cones}
+
+\begin{defn}\leavevmode
+	Let \(P\) be a projective orbifold (so probably a manifold with mild singularities) and \(L\) an ample line bundle on \(P\). An \textit{\textbf{open algebraic cone}} \(\operatorname{Tot}^0(L)\) is \textbf{just the set of nonzero vectors of the bundle}. 
+\end{defn}
+
+In the case of \(P \subset \mathbb{C}P^{n}\) and \(L=\mathcal{O}(1)|_{P}\), the open algebraic cone \(\operatorname{Tot}^0(L)\) can be identified with thw set \(\pi^{-1}(P)\) \textbf{of all \(v \in \mathbb{C}^{n+1}\setminus\{0\}\) projected to \(P\) under the standard map \(\pi:\mathbb{C}^{n+1}\setminus\{0\} \to \mathbb{C}P^{n}\).} The \textit{\textbf{closed algebraic cone}} is its closure in \(\mathbb{C}^{n+1}\). It is an affine subvariety given by the same collection of homogeneous equations as \(P\). Its \textit{\textbf{origin}} is zero.
+
+\begin{thing5}{ChatGPT}\leavevmode
+In the case where \(P \subset \mathbb{C}P^n\) and \(L = \mathcal{O}(1)|_P\), the open algebraic cone \(\operatorname{Tot}^0(L)\) can be identified with the set \(\pi^{-1}(P)\), where \(\pi: \mathbb{C}^{n+1} \setminus \{0\} \to \mathbb{C}P^n\) is the standard projection. Explicitly, \(\pi^{-1}(P)\) consists of all \(v \in \mathbb{C}^{n+1} \setminus \{0\}\) that project to points in \(P\).
+
+The \textbf{closed algebraic cone} is the Zariski closure of \(\pi^{-1}(P)\) in \(\mathbb{C}^{n+1}\). It is an affine subvariety defined by the same collection of homogeneous equations as \(P\). Its \textbf{origin} is the zero vector in \(\mathbb{C}^{n+1}\).
+\end{thing5}
+
+\begin{thing6}{Hard definition}\leavevmode
+An automorphism \(A: P \to P\) is \textit{\textbf{\(L\)-Linearizable}} \(L\) admits an $A$-equivariant structure, in other words, if $A$ can be lifted to an automorphism of the cone \(\operatorname{Tot}^0(L)\) which is linear on fibers.
+\end{thing6}
+
+\begin{thing6}{Explanation by ChatGPT}\leavevmode
+The definition essentially asks whether \(A\) can be extended to the total space of \(L\) in a way that is consistent with the geometric and algebraic structures of \(L\). This "lifting" ensures that the action of \(A\) on \(P\) interacts harmoniously with the fibers of \(L\).
+\end{thing6}
+
+We need that to define \textit{\textbf{Vaisman manifolds}}: they are the quotient \(\operatorname{Tot}^0(L)/\left<A\right>\) where \(A: \operatorname{Tot}^0(L)\to \operatorname{Tot}^0(L)\) which is linear on fibers and satisfies \(|A(v)|=\lambda|v|\) for some number \(\lambda>1\).
+
+Right so notice that Vaisman manifolds and Hopa manifolds are similar. Here's a diagram from the board (from Lecture 3):
+\[\begin{tikzcd}
+	\operatorname{Tot}^0(L)\arrow[r,hook]\arrow[d,"/\mathbb{Z}"]&\mathbb{C}^N\setminus\{0\}\arrow[d,"/\mathbb{Z}"]\\\text{Vaismann} \arrow[r,hook]&\text{Hopf} 
+\end{tikzcd}\]
+
+\begin{quotation}
+	Every Vaismann can be embedded to a Hopf-Vaismann (a Hopf that is Veismann). Not any Vaismann is Hopf nor the other way around.
+\end{quotation}
+
+\begin{quotation}
+	Elliptic non algebraic surfaces are Vaismann
+\end{quotation}
+
+\[\begin{tikzcd}
+	&  &  \text{Non-algebraic surfaces} \arrow[dll]\arrow[dl]\arrow[d]\arrow[dr]\\
+	\text{K3} & \text{ Class VII} &\text{Hopf non-ellptic}&\text{Elliptic (largest class)}  \\
+	\text{Not Vaisman} &\text{Not Vaisman} &\text{Sometimes Vaismann} &\text{Vaismann} 
+\end{tikzcd}\]
+
+
+
+
+\section{Lecture 3:  Locally conformal Kähler manifolds}
+
+\subsection{Algebraic cones and Vaisman manifolds (reminder)}
+
+\[\begin{tikzcd}
+	M \arrow[r,hook]&  \mathbb{C}P^{1}\\
+	C_0(M)\arrow[u,"\mathbb{C}^*\text{-fibered} "]&  \mathbb{C}^{n+1}\setminus\{0\}\arrow[u,"\mathbb{C}^0"]\arrow[d,hook]\\
+	C(M)\setminus \arrow[ u]\arrow[r,hook]&\mathbb{C}
+\end{tikzcd}\]
+
+
+\subsection{LCK manifolds in terms of differential forms}
+
+So what is Kähler?
+
+\((M,I)\) complex manifolds, $ g$ an \(I\)-invariant Riemannian metric, "Hermitian metric", \(\omega(x,y):=g(Ix,y)\) Hermitian form; \(d \omega=0\) Kähler.
+
+\begin{defn}\leavevmode
+	\(\omega\) Hermitian form, \(\omega \in \Lambda^{1,1}_{\mathbb{R}}(M)\), \(\omega(x,Ix)>0\), \(\omega\) is \textit{\textbf{Locally conformally Kähler}} if \(d \omega= \omega \wedge \theta\), \(\theta\) closed 1-form. \(\theta\) is called the \textit{\textbf{Lee form}}.
+\end{defn}
+
+\begin{remark}\leavevmode
+	The condition if \textbf{conformally invariant}: it is preserved if we replace \(\omega\) by a conformally equivalent form \(f \omega\) for some positive smooth function \(f>0\).Indeed,
+	\[d(f \omega)=df \wedge \omega+f d \omega=df \wedge \omega +f \theta \wedge \omega=(df+f\theta)\wedge\omega.\]
+\end{remark}
+
+This makes us notice that a classical Hopf manifold \(\frac{\mathbb{C}^n\setminus\{0\}}{\left< \lambda \operatorname{Id}\right>}\) is LCK.
+
+\subsection{Chern connection again}
+
+There is a connection on a holomorphic bundle compatible with the metric that is called \textit{\textbf{Chern connection}}.
+
+The point is that the curvature can be written locally as  \(d d^c\) of some function. And it can be global if you have a non-degenerate holomorphic section taking \(\partial \bar\partial \operatorname{log}|b|\). But it is \(d d^c\) of a function that's the point.
+
+Now there is 
+
+\begin{thing6}{Theorem 5.30}[\cite{verbi}]\leavevmode
+The function that maps \(l=\psi:v \mapsto |v|^2\) along with some other stuff like the definition of the function \(q\) then there following expression is true:
+\[d d^c l=-q(\theta_B)+\omega_\pi.\]
+\end{thing6}
+
+Which leads to
+
+\begin{coro}\leavevmode
+	Let \(L\) be a line bundle with negative curvature on a projective manifold. Then the form \(\frac{ d d^c\psi}{\psi}\) is \textbf{homothety invariant} and locally conformally Kähler on \(\operatorname{Tot}^0(L)\).
+\end{coro}
+
+\begin{remark}\leavevmode
+	We have just shown that \textbf{Vaisman manifolds are LCK}.
+\end{remark}
+
+\subsection{Homotheties, monodromy and objective}
+
+We want to give a definition of LCK in terms of a Kähler form on the universal covering. Also might involve local systems. \textbf{Under the alternative definition, LCK manifold is a quotient of a Kähler manifold by a free action of cocompact, discrete group acting by homotheties.}
+
+\begin{claim}\leavevmode
+	Any conformal map \(\varphi:(M,\omega) \to (M_1,\omega_1)\) of Kähler manifolds is a homothety.
+\end{claim}
+
+\subsection{Reminder on connections and curvature}
+
+The point is that local systems are flat line bundles.
+
+\begin{defn}\leavevmode
+	A \textit{\textbf{local system}} on a manifold is a locally constant sheaves of vector spaces.
+\end{defn}
+
+\begin{thm}[Rieman-Surfaces lecture 20]\leavevmode
+Fix a point \(x \in M\). The category of local systems is naturally equivalent to the category of representations of \(\pi_1(M,x)\).
+\end{thm}
+
+\begin{proof}\leavevmode
+\begin{enumerate}[label=\textbf{Step \arabic*}]
+\item From a locally constant sheaf \(\mathbb{V}\) we construct a vector bundle \(B:=\mathbb{V} \otimes_{\mathbb{R}_M}\mathbb{C}^\infty M\), where \(\mathbb{R}_M\) is the constant sheaf on \(M\). Define a connection \(\nabla\left(\sum_{i=1}^n f_iv_i\right) =\sum df_i \otimes v_i\); where \(v_1,\ldots,v_n\) is a basis in \(\mathbb{V}(U)\). {\color{5}We have constructed a functor from locally constant sheaves to flat vector bundles.}
+
+\item The converse functor takes a flat bundle \((B,\nabla)\) on \(M\) goes to the sheaf of parallel sections \(\nabla b=0\); this sheaf is  locally constant because every vector can be locally extended to a parallel section uniquely (using Frobenius theorem; this is non-trivial).
+\end{enumerate}
+\end{proof}
+
+\subsection{\(\chi\)-automorphic forms}
+
+The following resembles the way we have define LCK form on a manifold; multipliying by a number something that comes from the universal cover (…?)
+
+\begin{defn}\leavevmode
+	Let \(\tilde{M} \xrightarrow{\pi}M\) be the universal covering of \(M\), and \(\xi:\pi_1(M) \to \mathbb{R}^{>0}\) a \textit{\textbf{character}}, which is just a group homomorphism. Consider the natural action of \(\pi_1(M)\) on \(\tilde{M}\). An \textit{\textbf{\(\xi\)-automorphic form}} on \(\tilde{M}\) is a differential form \(\eta \in \Lambda^{k}(M)\) which satisfies \(\gamma^* \eta=\xi(\gamma)\eta\) for any \(\gamma \in \pi_{1}(M)\).
+\end{defn}
+
+\begin{thing6}{Proposition 1}[What Lada had said!, this is Claim 3.28 \cite{verbi}]\leavevmode
+Let \(L\) be a rank 1 local system on \(M\) {\color{3}associated to the representation \(\chi\) (so how is it assocated to \(\chi\)?)}. Then the space of \(\chi\)-automorphic \(k\)-forms on \(\tilde{M}\) is in natural correspondence with the space of sections of \(\Lambda^{k}(M)\otimes L\). Under this equivalence, the de Rham differential on \(\chi\)-automorphic forms corrasponds to the operator \(d_\nabla: \Lambda^{k}(M)\otimes L \to \Lambda^{k+1}(M)\otimes L\).
+\end{thing6}
+
+\begin{proof}\leavevmode
+\begin{enumerate}[label=\textbf{Step \arabic*}]
+\item Pullback the line bundle to the universal cover: \(\tilde{L}:= \pi^*L\), \(\pi:\tilde{M} \to M\). I think \(\tilde{L}\) is trivial: ``The bundle \(\tilde{L}\) is flat and has trivial monodromy, hence it is naturally trivialized by parallel sections".
+\end{enumerate}
+\end{proof}
+
+\begin{remark}\leavevmode
+	\(d_\nabla=d+\theta\)
+\end{remark}
+
+\bibliography{bib.bib}
+\end{document}

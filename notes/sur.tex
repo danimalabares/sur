@@ -18,6 +18,8 @@
 \vspace{10pt}
 {\huge Complex surfaces}
 
+\tableofcontents
+
 \section{Lecture 1: Kodaira dimension and Hopf manifolds}
 
 \subsection{Outline}
@@ -190,6 +192,8 @@ The following resembles the way we have define LCK form on a manifold; multipliy
 
 \begin{defn}\leavevmode
 	Let \(\tilde{M} \xrightarrow{\pi}M\) be the universal covering of \(M\), and \(\xi:\pi_1(M) \to \mathbb{R}^{>0}\) a \textit{\textbf{character}}, which is just a group homomorphism. Consider the natural action of \(\pi_1(M)\) on \(\tilde{M}\). An \textit{\textbf{\(\xi\)-automorphic form}} on \(\tilde{M}\) is a differential form \(\eta \in \Lambda^{k}(M)\) which satisfies \(\gamma^* \eta=\xi(\gamma)\eta\) for any \(\gamma \in \pi_{1}(M)\).
+
+	This makes sense because \(\pi_1(M)\) acts freely on \(\tilde{M}\) (and the quotient is \(M\)), so we can pullback \(\eta\) and it gives an other form on \(\Lambda^{k}(M)\).
 \end{defn}
 
 \begin{thing6}{Proposition 1}[What Lada had said!, this is Claim 3.28 \cite{verbi}]\leavevmode
@@ -205,6 +209,164 @@ Let \(L\) be a rank 1 local system on \(M\) {\color{3}associated to the represen
 \begin{remark}\leavevmode
 	\(d_\nabla=d+\theta\)
 \end{remark}
+
+\section{Lecture 5: local systems and LCK manifolds}
+
+\subsection{\(\chi\)-automorphic forms again}
+
+\begin{upshot}\leavevmode
+	The point is that \(L\)-valued differential forms on \(M\) are in correspondence with \(\chi_L\)-automorphic differential forms \textit{on \(\tilde{M}\)}.
+\end{upshot}
+
+\begin{thing6}{Proposition 1}\leavevmode
+\((L,\nabla)\) a real flat orientes line bundle. Identify with a local system: associated to \(\chi\) fix a trivializatino of \(L\). Then sections of \(L \otimes \Lambda^{1}(M)\) are in bijection with \(\chi\)-automorphic forms on \(\tilde{M}\) via
+\begin{align*}
+	\sigma: \Lambda^{\bullet}(M)\otimes L &\longrightarrow \Lambda^{\bullet}(\tilde{M}) 
+\end{align*}
+\[\sigma(d_\nabla \eta)=d\sigma(\eta).\]
+\end{thing6}
+
+\begin{proof}[Very incomplete proof]\leavevmode
+\begin{enumerate}[label=\textbf{Step \arabic*}]
+\item \(u_1\) a nowhere-vanishing section of \(L\), and \(\theta\) a 1-form such that \(\nabla u_1=u_1 \otimes \theta\).
+
+	\begin{thing7}{Extra}\leavevmode
+	How to produce the antiderivative of an exact one form: we integrate from \(x\) to \(y\).
+	\end{thing7}
+\end{enumerate}
+\end{proof}
+
+\subsection{Lichnerowicz cohomology}
+
+Look for  \textbf{Definition 2.51} for definition of \(d_\nabla\), the \textit{\textbf{\(B\)-valued de Rham differential}} of the complex \(\Lambda^{i}(M) \otimes B \longrightarrow \Lambda^{i+1}(M) \otimes B\) given by \(d_\nabla(\eta \otimes b):=d \eta \otimes b +(-1)^{\tilde{\eta}-1}\eta \wedge \nabla b\) for the (real I think) flat bundle \((B,\nabla)\).
+
+\begin{defn}\leavevmode
+	Let \(\theta\) be a closed 1-form on a manifold, and \(d_\theta(\alpha):= d \alpha + \theta \wedge \alpha\) be the corresponding differential on \(\Lambda^{*}(M)\). Its cohomology are called \textit{\textbf{Morse-Novikov cohomology}}, or  \textit{\textbf{Lichnerowicz cohomology}}, denoted \(H^{^*}_\theta(M)\).
+\end{defn}
+
+\begin{thm}\leavevmode
+	Lichnerowitz cohomology of a manifold is equal to the cohomology with coefficientes in a local system defined by \((L,\nabla)\).
+\end{thm}
+
+\begin{proof}\leavevmode
+Short.
+\end{proof}
+
+\subsection{Definition of LCK manifolds in terms of an  \(L\)-calued Kähler form}
+
+\begin{defn}\leavevmode
+	Let \((L,\nabla)\) be an oriented real line bundle with flat connection on a complex manifold \(M\), and \(\omega \in L \otimes \Lambda^{ 1,1}(M)\) a \((1,1)\)-form with values in \(L\). We say that \(\omega\) is an \textit{\textbf{\(L\)-valued Kähler form}} if \(\omega(x, Ix) \in L\) is (strictly) positive for any non-zero tangent vector, and \(d_\nabla \omega =0\).
+\end{defn}
+
+\begin{thing6}{Superremark}\leavevmode
+If we use a trivialization to identify \(L\) and \(C^\infty M\), \(\omega\) becomes a \((1,1)\)-form and \(d_\nabla\) becomes \(d_\theta\), giving \(d_\nabla(\alpha)= d\alpha + \theta \wedge \alpha\). Therefore, \textbf{\(L\)-valued Kähler form on a manifold is the same as an LCK-form}.
+\end{thing6}
+
+\subsection{Definition of LCK manifolds in terms of deck transform}
+
+\begin{thing6}{Another definition}\leavevmode
+An \textit{\textbf{LCK manifold}} is a complex manifold \(M\), \(\dim_\mathbb{C} M \geq 2\) such that its universal cover \(\tilde{M}\) is equipped with a Kähler form \(\tilde{\omega}\), and the deck transform acts on \(\tilde{M}\) by Kähler homotheties.
+\end{thing6}
+
+\begin{thm}\leavevmode
+	These two definitions are equivalent.
+\end{thm}
+
+\section{Class 6: Vaisman theorem}
+
+\subsection{LCK (reminder)}
+
+\begin{defn}\leavevmode
+A complex Hermitian manifold of dimension >1 \((M,I,g,\omega)\) is called \textit{\textbf{locally conformally Kähler}} if there is a closed form \(\theta\) such that \(d \omega =\theta \wedge \omega\). \(\theta\) is the \textit{\textbf{Lee form}} and its cohomology class is the \textit{\textbf{Lee class}}.
+\end{defn}
+
+\subsection{Vaisman theorem}
+
+Suppose you have a LCK manifold. Suppose you want to replace \(\theta\) by \(\theta'=\theta + df\).
+\begin{align*}
+d(e^f \omega )= e^f( d \omega +df \wedge \omega)\\
+&=e^f((\theta + df) \wedge \omega)\\
+\implies  d \omega'=(\theta+ df) \wedge \omega'\\
+d \omega'=\theta' \wedge \omega'.
+\end{align*}
+And the converse is also true:
+
+\begin{quotation}
+	conformally equivalent LCK metric give rise to homologous Lee forms, and any closed 1 form cohomologous to the Lee form is a Lee form conformally equivalent LCK metric.
+\end{quotation}
+
+\begin{thm}[Vaisman]\leavevmode
+	\(M\) LCK, if \([\theta]=0\) (=\(\theta\) is not extact) then \(M\) is not of Kähler type. 
+\end{thm}
+
+\begin{remark}\leavevmode
+\((M,I)\) Kähler compact: for \(\alpha \in \Lambda^{1}(M,\mathbb{C})\) there exists unique representatives \(\alpha=\alpha^{1,0}+\alpha^{0,1}\) that are closed, i.e.  \(d \alpha^{1,0}=d \alpha^{0,1}=0\).
+\end{remark}
+
+\begin{proof}[Proof of Vaisman theorem]\leavevmode
+Take a form \(\theta\) and multiply it by its complex conjugate \(I \theta\). I think here we took local coordinates: \(\theta=x_1\) and \(I\theta=y_1\). So \(\omega = \sum x_i \wedge y_i\). And then here's what I don't understand:
+\(x_1 \wedge y_1 \left(\sum_{i=1}^n x_i \wedge y_i\right)^{n-1}=(n-1)! x_1 \wedge y_1 \wedge \prod_{i=2}^4 x_i \wedge y_i\). And that's positive!
+
+And that gives the contradiction that
+\[0= \int d d^c (\omega^{n-1})>0\]
+because any exact form has intergral zero by Stokes.
+\end{proof}
+
+\begin{defn}\leavevmode
+\textit{\textbf{Vaismann manifold}} is \((M,I,\omega)\) complex hermitian, \(d\omega =\theta \wedge \omega\), \(\nabla\theta=0\), \(\nabla\) Levi-Civita connection of \(g=(\omega(x,Iy)\).
+
+{\color{7}(I think here we may be considering the musical dual of \(\theta\) to take the covariant derivative.)}
+\end{defn}
+
+\begin{thing6}{Equivalent definition}\leavevmode
+\(G \) complex Lie group acting on an LCK manifold conformally and holomorphically, then  \((M,I)\) is Vaismann.
+\end{thing6}
+
+\begin{remark}\leavevmode
+The theorem that both definitions are equivalent is hard to prove.
+\end{remark}
+
+\subsection{Vaisman examples}
+\begin{thm}\leavevmode
+Diagonal Hopf is Vaisman.
+\end{thm}
+
+Diagonal Hopf is then the \(A\) in \(\mathbb{C}^n/\left<A\right>\) is diagonalizable.
+
+I think
+
+\begin{thm}\leavevmode
+Z Hopf. \(Z\) is Vaisman iff is \(Z\) is diagonal.
+\end{thm}
+
+\subsection{The fundamental foliation}
+
+\begin{defn}\leavevmode
+\(M\) Vaisman manifold, \(\theta ^\sharp\) its Lee fild,, and \(\Sigma\) a 2-dimensional real foliation generated by \(\theta ^\sharp, I\theta ^\sharp\). It is called \textit{\textbf{the fundamental foliation}} of \(M\).
+\end{defn}
+
+\begin{question}\leavevmode
+So at 
+\end{question}
+
+\begin{thm}\leavevmode
+\(M\) Vaisman, \(\Sigma\) its canonical foliation.
+
+\begin{enumerate}
+\item \(\Sigma\) is independent from the metric (it's canonical).
+\item There exists a 2-form \(\omega \in \Lambda^{1,1}(M)\) which is semipositive on every transversal to \(\Sigma\), \(\omega_0|_{\Sigma}=0\), exact.
+
+{\color{6}It's a contact structure, right? On slides: 2. There exists a positive, exact \((1,1)\)-form \(\omega_0\) with \(\sum= \ker \omega_0\)}
+	\begin{remark}\leavevmode
+	This 2-form is easy to see in these examples: the pullback of Fubini-Study metric: its pullback is exact! Remember that the pullback of any bundle to the \(\operatorname{Tot}^0(M)\) is trivial.
+	\end{remark}
+\item  \(Z \subset M\) tangent to \(\Sigma\),
+\item \(Z \subset M\) is Vaisman.
+\end{enumerate}
+\end{thm}
+
+
+
 
 \bibliography{bib.bib}
 \end{document}

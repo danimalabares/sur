@@ -280,14 +280,59 @@ An \textit{\textbf{LCK manifold}} is a complex manifold \(M\), \(\dim_\mathbb{C}
 A complex Hermitian manifold of dimension >1 \((M,I,g,\omega)\) is called \textit{\textbf{locally conformally Kähler}} if there is a closed form \(\theta\) such that \(d \omega =\theta \wedge \omega\). \(\theta\) is the \textit{\textbf{Lee form}} and its cohomology class is the \textit{\textbf{Lee class}}.
 \end{defn}
 
+\subsubsection*{The Deal with \(\omega\)}
+
+\paragraph{Fundamental Form:}
+\begin{itemize}
+    \item The 2-form \(\omega\) is the \textbf{fundamental 2-form} associated with the Hermitian metric \(g\) and the complex structure \(J\), defined by:
+    \[
+    \omega(X, Y) = g(JX, Y).
+    \]
+    \item This \(\omega\) is not automatically a \textbf{symplectic form}, because it may fail to be \textbf{closed} (\(d\omega \neq 0\)).
+\end{itemize}
+
+\paragraph{Kähler Condition:}
+\begin{itemize}
+    \item When \(d\omega = 0\), \(\omega\) becomes a symplectic form, and the manifold \(M\) is Kähler. This means \(M\) is simultaneously a symplectic, complex, and Riemannian manifold with a harmonious interaction between these structures.
+\end{itemize}
+
+\paragraph{Locally Conformally Kähler:}
+\begin{itemize}
+    \item In LCK geometry, \(\omega\) doesn’t satisfy \(d\omega = 0\) globally. Instead, it satisfies:
+    \[
+    d\omega = \theta \wedge \omega,
+    \]
+    where \(\theta\) is the \textbf{Lee form} (a closed 1-form). This deviation from \(d\omega = 0\) characterizes LCK manifolds.
+\end{itemize}
+
+\paragraph{Why Locally Conformal?}
+\begin{itemize}
+    \item Locally, there exists a function \(f\) such that rescaling the metric by \(e^{-f}\) makes \(\omega\) closed:
+    \[
+    e^{-f}\omega \text{ is Kähler.}
+    \]
+    \item This means LCK manifolds are "almost" Kähler but need a conformal adjustment locally.
+\end{itemize}
+
+\subsubsection{Some more notes on complex geometry}
+
+That the Kähler form is the differential of a plurisubharmonic function \(\psi\). that is \(\omega=d d^c \psi=\sqrt{-1} \partial \partial \psi\).
+
+And it is a \((1,1)\)-form.
+
+Any positive \((1,1)\) form looks like this:  \(\sum \alpha I x_i \wedge x_i\) for some positive functions \(\alpha_i \geq 0\).
+
+How to prove adjunction formula, that the canonical bundle of a submanifold is the normal bundle of the submanifold tensor product the canonical bundle of the ambient manifold restricted to the submanifold, \(K_M=N_M \otimes K_X |_{M}\): contract a form of the ambient space with a normal section!
+
 \subsection{Vaisman theorem}
 
 Suppose you have a LCK manifold. Suppose you want to replace \(\theta\) by \(\theta'=\theta + df\).
 \begin{align*}
-d(e^f \omega )= e^f( d \omega +df \wedge \omega)\\
-&=e^f((\theta + df) \wedge \omega)\\
-\implies  d \omega'=(\theta+ df) \wedge \omega'\\
-d \omega'=\theta' \wedge \omega'.
+d(e^f \omega )&= e^f( d \omega +df \wedge \omega)\\
+&=e^f((\theta + df) \wedge \omega),\qquad \text{\(\omega\) is LCK} \\
+&=e^f(\theta'\wedge\omega,\qquad \text{\(\theta\) and \(\theta'\) cohomologous} \\
+\implies  d \omega'&=(\theta+ df) \wedge \omega'\\
+\implies d \omega'&=\theta' \wedge \omega'.
 \end{align*}
 And the converse is also true:
 
@@ -364,6 +409,113 @@ So at
 \item \(Z \subset M\) is Vaisman.
 \end{enumerate}
 \end{thm}
+
+\section{Lecture 7: elliptic operators of order 2}
+
+\begin{enumerate}
+\item "The ring of symbols"
+	\begin{thm}\leavevmode
+		\[\bigoplus_{k}\frac{\operatorname{Dif}^k(M)}{\operatorname{Dif}^{k-1}(M)}=\bigoplus_{k}\operatorname{Sym}^{k-m}(TM)\]
+	\end{thm}
+	So on the lefthandside we have the graded algebra induced by the filtration \(\operatorname{Dif}^0 \subset \operatorname{Dif}^1 \subset \ldots\) of differential operators of different orders on \(M\).
+
+	\begin{proof}\leavevmode
+	We give a pairing
+	\[\frac{\operatorname{Dif}^k}{\operatorname{Dif}^{k-1}}\otimes \frac{\mathfrak{m}^k}{\mathfrak{m}^{k-1}}\]
+and we recall from Hartshorne that \(\frac{\mathfrak{m}^k}{\mathfrak{m}^{k+1}}=\operatorname{Sym}^k(T^*M)\).
+	\end{proof}
+
+	\item Definition: \textit{\textbf{symbol}} of the differential operator \(D \in \operatorname{Dif}^k(M)\) is its image in \(\operatorname{Sym}^k(TM)\)
+	\item Remark. A differential operator gives us a polynomial function on the cotangent bundle because \(\operatorname{Sym}^k(T^*M)=\) order \(k\) homogeneous polynomial functions on \(T ^* M\).
+	\item Definition: \(D \in \operatorname{Dif}^k\) is \textit{\textbf{elliptic}} if \(\sigma(D)\) is positive or negative everywhere on \(T^* M\setminus\{0\}\).
+	\item Remark. The symbol of an elliptic operator of second order is positive definite or negative definite. We assume is positive definite. 
+	\item 
+		\begin{thing6}{Strong maximum principle (version with boundary)}[Hopf]\leavevmode
+		\(M\) manifold with boundary. \(D\) elliptic of second order. $f \in C^\infty(M)$  \(D(f) \geq  0\). Then all local maxima of $f$ are on \(\partial M\) or $f$ is constant.
+		\end{thing6}
+		\begin{proof}[Proof assuming \(D(f)>0\)]\leavevmode
+		Because the Hessian is negative semidefinite
+		\end{proof}
+	\item Weak maximum principle. I think here /cha
+		\end{enumerate}
+
+\section{Lecture 8: adjoint operators in Hodge theory}
+
+\subsection{Adjoint connection (reminder)}
+
+First recall that a connection on a vector bundle \(B\) induces a connection on the dual bundle: if \(\nabla: B \to B \otimes \Lambda^{1}(M)\), exists a unique connection \(\nabla^* : B ^*\to  B ^*  \otimes \Lambda^{1}(M)\) satisfying \(d \left< b , \beta\right>=\left<\nabla b, \beta\right>+ \left< b, \nabla ^* \beta\right>\).
+
+The connection \(\nabla ^* \) is called \textit{\textbf{adjoint connection}} to \( \nabla\). The connection \(\nabla = \nabla ^*\) happens precisely when \(\nabla\) preserves the metric tension, consider a section of \( B ^* \otimes B ^* \) and in this case \(\nabla\) is called an \textit{\textbf{orthogonal connection}}.
+
+\subsection{Adjoint connection and \(L^2\)-product}
+
+\begin{upshot}\leavevmode
+A scalar product on the space of sections of a vector bundle \(B\). Because we want to define adjoint differential operators on the infinite-dimensional space of sections of the bundle. You multiply sections pointwise, you obtain a function, you integrate that function, you get a number.
+\end{upshot}
+
+\(M\) Riemannian manifold, \(b, b'\) sections of \(B\).  \((,)\) scalar product on  \(B\), \((b,b,)_{L^2}=\int(b,b')\operatorname{Vol}\).
+
+\begin{lemma}[Integration by parts]\leavevmode
+
+\end{lemma}
+\begin{proof}\leavevmode
+The key observation is that
+\[\int\mathsf{Lie}_X(\left<b,b'\right>)\operatorname{Vol}=0\]
+because \(\mathsf{Lie}_X(\eta)=di_X\eta + \cancelto{0}{i_Xd\eta}\) so \(\mathsf{Lie}_X(\eta)\) is exact.
+\end{proof}
+
+\subsection{Adjoint operators}
+
+\begin{defn}\leavevmode
+\(A: F \to G\) linear map on vector spaces with scalar products. \(A: G \to G\) is \textit{\textbf{dual}} if \((Ax,y)=(x,A^*y)\). \(A^*y\) is a vector such that \(\left<A^*y,x\right>=\left<Ax,y\right>\).
+\end{defn}
+
+Existence is obvious and uniqueness (…)
+
+\begin{claim}\leavevmode
+A diferential operator on vector bundles with scalar products \(D : B_1 \to B_2\), then its adjoint \(D^*:B_2 \to B_1\) is also a differential operator of the same order.
+\end{claim}
+
+\begin{remark}\leavevmode
+Most of you know that \(d^*=\pm  * d *\) which is a composition of linear operators, it's the Hodge star.
+\end{remark}
+
+\begin{proof}[Proof of claim]\leavevmode
+\(C^\infty M\)-linear. Then we can take the dual point by point (dual exists because its finite dimensional), and it works because it's linear and it's a vector bundle. Then we claim that all first order differential operators are combinations of a fixed connection \(\nabla_X\) (connections are differential operators). Then somehow we have shown that actually \(\nabla_X \) coincides by \(\nabla_X^*\) (integrating by parts).
+\end{proof}
+
+\subsection{Laplacian on differential forms}
+
+Start with a Riemannian manifold, say, compact. You can do it with non-compact: if you take care about having things with compact support, and it will work, but we don't want to do it because it takes some extra effort and we won't need it.
+
+Then the sections of \(\Lambda^{*}(M)\) we define scalar product ver naturally:
+ \[(\eta,\eta')_{L^2}=\int(\eta,\eta')\operatorname{Vol}_g\]
+ now
+ \[d^* = \text{dual to $d$} \]
+ Also, but this is not related to our course since we did not define Hodge star operator, \(d^*=\pm  * d *\).
+ 
+\begin{defn}\leavevmode
+Laplacian is \(\Delta=dd^*+ d^*d\)
+\end{defn}
+
+\begin{remark}\leavevmode
+It's self dual (self-adjoint) because \(*\) is self dual . And it's positive-definite 
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

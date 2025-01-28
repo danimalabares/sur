@@ -9,9 +9,9 @@
 
 \begin{minipage}{\textwidth}
 	\begin{minipage}{1\textwidth}
-		 \hfill Daniel González Casanova Azuela
+		 Complex Surfaces\hfill Daniel González Casanova Azuela
 		
-		{\small \hfill\href{https://github.com/danimalabares/}{github.com/danimalabares/}}
+		{\small Prof. Misha Verbitsky\hfill\href{https://github.com/danimalabares/}{github.com/danimalabares/}}
 	\end{minipage}
 \end{minipage}\vspace{.2cm}\hrule
 
@@ -502,23 +502,99 @@ Laplacian is \(\Delta=dd^*+ d^*d\)
 It's self dual (self-adjoint) because \(*\) is self dual . And it's positive-definite 
 \end{remark}
 
+\section{Lecture 9: Atiyah-Singer index theorem}
 
+Very famous theorem. It's topology. Application of analysis for topology.
 
+\subsection{Fredholm operators}
 
+\begin{defn}\leavevmode
+A continuous operator \(F: H_1 \to H_2\) of Hilbert spaces is called \textit{\textbf{Fredholm}} if \textit{its image is closed} ({\color{6}that's new I think}) and its kernel and cokernel are finite dimensional. 
+\end{defn}
 
+Next is a condition of invertibility of Fredholm maps. Uses Banach-Schouder theorem. We take the kernel of the map and quotient its domain (we get injectivity); and the restrict the codomain to the image. But we do have to use that BS theorem.
 
+\begin{claim}\leavevmode
+\(F: H_1 \to H_2\) is Fredholm iff there is a map \(G:H_2 \to H_1\) such tat \(\operatorname{Id}-FG\) and \(\operatorname{Id}-GF\) have finite rank.
+\end{claim}
 
+\begin{defn}\leavevmode
+\textit{\textbf{Index}} of \(F\) is \(\dim \ker F-\dim \operatorname{coker}F\).
+\end{defn}
 
+This one is also in \cite{brezis} (though not proved there):
 
+\begin{prop}\leavevmode
+The class of Fredholm operators is an open subset of \(\mathcal{L}(E,F)\) (with the norm topology, so the norm of an operator is the supremum of its values on the unit sphere).
+\end{prop}
 
+So that makes the domain of the index function a reasonable space. Then: \cite{brezis}: the index map \(A \mapsto  \operatorname{ind}A\)is continuous. But not only that:
 
+\begin{thm}\leavevmode
+The index function is locally constant.
+\end{thm}
 
+So, apparently obviously, the open set of domain of Fredholm operators is not connected, so for example, I think the shift function
+So, apparently obviously, the open set of domain of Fredholm operators is not connected, so for example, I think the shift function.
 
+\subsection{Sobolev norm}
 
+\begin{defn}\leavevmode
+\(B\) vector bundle with metric over a Riemannian manifold. Define \(L^2_p\) metric for asection \(b \in B\) 
+\[|b|^2_p=|b|_{L^2_p}=\sum_{i=0}^p |\nabla^i b|\]
+Of course in the non-compact case we must take things with compact support.
+\end{defn}
 
+\begin{remark}\leavevmode
+This norm is not complete, must take closure.
+\end{remark}
 
+\begin{defn}\leavevmode
+\(L^2_p\)\textit{\textbf{-topology}} on \(C^\infty M\) is topology defined by \(L^2_p\)-norm.
+\end{defn}
 
+\begin{remark}[should be simple]\leavevmode
+If \(D\) is a differential operator (on a compact mfld for simplicity) of order \(k\). Then \(D : C^\infty  M,L^2_p \to C^\infty M,L^2_{p-k}\) is (continuous?)
 
+If you have a bound on \(k\) derivatives and you take  more derivatives…
+\end{remark}
+
+\subsection{Elliptic operators}
+
+\begin{defn}\leavevmode
+\(D: B \to B\) order \(k\) differential operator, then \( \operatorname{symb}(D) \in \operatorname{Sym}^k(T)\otimes \operatorname{End}(B)\) \(k\) (this is agrued using a matrix of symbols) =degree \(k\) polynomial functions on \(T^*M\) with values in \(\operatorname{End}(B)\).
+
+\(D\) is \textit{\textbf{elliptic}} if (after interpreting its symbol as a polynomial function) \(\operatorname{symb}(D)(v)\) is invertible fora ll \(0 \neq  v \in T^*M \).
+\end{defn}
+
+\begin{thm}[Elliptic operator is Fredholm (I didn't find it in \cite{brezis})]\leavevmode
+\(B_1,B_2\) vector bundles, \(D: B_1 \to B_2\) elliptic of order $p$. Then \(D(B_1,L^2_{k+p}\to (B_2,L^2_k)\) is Fredholm.
+\end{thm}
+
+Super hard to prove but super important and basic.
+
+\begin{defn}\leavevmode
+\(D: B_1 \to BV_2\) elliptic. Its \textit{\textbf{index}} is the index of the map \(D:(B_1,L^2_p \to (B_2,L^2)\)\end{defn}
+
+\begin{coro}\leavevmode
+Let \(D_t\) be a continuous family of elliptic operators. The map \(t \mapsto \operatorname{ind}(D_t)\) is constant. so that if \(D_t\) are elliptic they remain elliptic.
+\end{coro}
+
+\begin{proof}\leavevmode
+Because we have seen that index is locally constant.
+\end{proof}
+
+\section{Index theorem for elliptic operators on \(C^\infty M\)}
+
+\begin{thm}\leavevmode
+All elliptic operators on \(C^\infty M\) have index 0.
+\end{thm}
+
+\begin{proof}\leavevmode
+\begin{enumerate}[label=\textbf{Step \arabic*}]
+\item \(\operatorname{symb}D\) is a homogeneous function. (by properties of the symbol) we conclude that \(\operatorname{deg}D\) is even.
+\end{enumerate}
+\end{proof}
 
 \bibliography{bib.bib}
 \end{document}

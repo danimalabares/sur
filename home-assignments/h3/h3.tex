@@ -16,180 +16,21 @@
 \vspace{10pt}
 {\huge Home assignment 2: Cohomology of local systems}
 
-\begin{thing5}{Remark 2.1}\label{rk:2.1}\leavevmode
-Throughout this assignment, all manifolds are assumed to be connected.
-\end{thing5}
-
-\begin{thing4}{Exercise 2.1}[W\(\lambda\) closed forms are W\(\lambda\) exact]\label{exer:2.1}\leavevmode
-Let \(\lambda>0\) be a real number. Define \textit{\textbf{weight \(\lambda\) homogeneous forms}} on \(\mathbb{R}^n\setminus 0\) as differential forms \(\eta\) which satisfy \(\rho_t^*=t^\lambda \eta\), where \(\rho_t\) is a homothety map \(z \mapsto  tz\), \(t \in \mathbb{R}\). Prove that a closed weight \(\lambda\) form is a differential of a weight \(\lambda\) form, for any \(\lambda \neq 1\).
-\end{thing4}
-
-\begin{proof}[Solution by Bruno]\leavevmode
-	(To be added.)
-\end{proof}
-
-\begin{thing4}{Exercise 2.2}[MN cohomology of Hopf manifold vanishes]\label{exer:2.2}\leavevmode
-Let \(M=\mathbb{R}^n\setminus\{0\}\Big/(x \sim 2x\) be a Hopf manifold, \(\theta\) a closed, non-exact 1-form, \(d_\theta=d+\theta\), and \(H^*_\theta(M)\) cohomology of the complex \((\Lambda^*(M),d_\theta)\) (\textit{\textbf{Morse-Novikov cohomology}}). Prove that \(H^i_\theta(M)=0\) for all \(i\).
-\end{thing4}
-
-\textbf{Hint.} Use the previous exercise.
+\begin{thing1}{Problem 3.2}\label{prob:3.2}\leavevmode
+Let  \(\eta\) be a harmonic form with compact support on \(\mathbb{R}^n\). Prove that \(\eta=0\).
+\end{thing1}
 
 \begin{proof}[Solution]\leavevmode
-In view of Exercise \hyperref[exer:2.1]{2.1} we are inclined to look for a ``weight \(\lambda\)" form in the class of any given closed differential form \(\alpha \in \Lambda^{*}(M)\). Then the \textit{usual} cohomology class of \(\alpha\) vanishes.
-
-{\color{6}Misha:} the standard way to do this is to ``average" the forms using a compact Lie group. So maybe ask GPT to what this means exactly.
-\end{proof}
-
-\begin{thing4}{Exercise 2.3}[\(\theta\) exact \(\implies\) MN cohomology=dr cohomology]\label{exer:2.3}\leavevmode
-Let \(\theta\) be an exact 1-form on a manifold \(M\). Construct an isomorphism between the complexes \((\Lambda^{i}(M),d_\theta)\) and \((\Lambda^{i}(M),d)\).
-\end{thing4}
-
-\begin{proof}[Solution by Bruno]\leavevmode
-Using exponential map. Do you rememeber?
-\end{proof}
-
-\begin{thing4}{Exercise 2.4}[\(\theta\) closed \(\implies\) MN vanishes iff \(\theta\) exact]\label{exer:2.4}\leavevmode
-Let \(\theta\) be a closed 1-form on a connected manifold. Prove that \(H^0_\theta(M)\neq  0\) if and only if \(\theta\) is exact.
-\end{thing4}
-
-\begin{proof}[Solution by Bruno.]\leavevmode
-I don't remember. There is an easy way using sheaves?
-\end{proof}
-
-\begin{thing3}{Definition 2.1}\label{def:2.1}\leavevmode
-	A \textit{\textbf{complex of vector spaces}} is a collection of \(\{A_i,i \in \mathbb{Z}\}\) of vector spaces equipped with the \textit{\textbf{differential}} \(d:A_i\to A_{i+1}\) such that \(d^2=0\);its \textit{\textbf{cohomology groups}} are \(\frac{\ker d}{\operatorname{img}d}\). \textit{\textbf{Morphism of complexes}} \(\phi:(A_*,d_A)\to (B_*,d_B)\) is a collection of homomorphisms \(\phi_i:A_i\to B_i\) commuting with the differentials. \textit{\textbf{The cone}} of such a morphism is a complex \(C_i:=B_i \oplus A_{i+1}\) with the differential \(d_B+(-1)^id_A+\phi:B_i \oplus A_{i+1}\to B_{i+1\oplus A_{i+2}}\).
+\(\eta\) harmonic form (of weight) \(k<n\). So \(\Delta \eta=0\). Then
 \begin{align*}
-	d_B+(-1)^id_A+\phi:B_i\oplus A_{i+1} &\longrightarrow B_{i+1}\oplus A_{i+2} \\
-	(b^i,a^{i+1}) &\longmapsto (d_B b^i, (-1)^i d_A a^{i+1}{\color{2}\underbrace{\cancel{, \phi}}_{?}})
+	(\eta,\Delta\eta)&=(\eta,(d^*d+d d^*)\eta)\\
+	&=(\eta,d^*d\eta)+(\eta,d d^*\eta)\\
+	&=(d\eta,d\eta)+(d^*\eta,d^*\eta)
 \end{align*}
+{\color{3}The idea (but it doesn't work)} is to take \(\eta:=d\omega\) {\color{4}(but it won't have compact support)}
 
-\begin{thing4}{Exercise 2.5}\label{exer:2.5}\leavevmode
-Let \(A_* \xrightarrow{\phi}B_*\) be a morphism of complexes of vector spaces, and \(C_*\) its cone. Construct a long exact sequence
-\[\begin{tikzcd}[column sep=small]
-	\cdots\arrow[r]&H^{i-1}(C_*)\arrow[r]&H^{i}(A_*)\arrow[r]&H^{i}(B_*)\arrow[r]&H^{i}(C_*)\arrow[r]&H^{i+1}(A_*)\arrow[r]&\cdots
-\end{tikzcd}\]
 
-\textbf{Note:} the indices are different in the answer.
-\end{thing4}
-
-\begin{proof}[Solution by Lada]\leavevmode
-I realise that
-\[\begin{tikzcd}0\arrow[r]&B_i\arrow[r]&B_i \oplus  A_{i+1}\arrow[r]&A_{i+1}\arrow[r]&0\end{tikzcd}\]
-which by the fundamental theorem of homological algebra gives a long exact sequence
-\[\begin{tikzcd}[column sep=small]
-	\cdots\arrow[r]&H^{k}(B)\arrow[r]&H^{k}(B_i \oplus  A_{i+1})=H^{k}(C_i)\arrow[r]&H^{k}(A_{i+1})\arrow[r]&H^{k+1}(B_{i+1})\arrow[r]&\cdots
-\end{tikzcd}\]
+\textbf{Correct idea:} to use maximum principle twice; once gives you nonnegative and the other one gives you zero (you take the negative… or \(1\) minus the form I think).
 \end{proof}
-
-\begin{thing4}{Exercise 2.6}[The trivial circle bundle]\label{exer:2.6}\leavevmode
-Let \(X\) be a manifold, \(M:=X \times S^1\), and \(\pi:M \to S^1\) the standard projection. Denote by \(T^1_X(M)\) the bundle of vectors tangent to the fibers of \(\pi\), \(\Lambda^{1}_X(M)\) its dual, and \(\Lambda^{*}_X(M)\) the corresponding Grassmann algebra. Consider the de Rham differential \(d_X\) acting on \(\Lambda^{*}_X(M)\) fiberwise along \(X\).
-
-\begin{enumerate}[label=(\alph*)]
-\item {\color{6}(cohomology of the vectors tangent to fibers is cohomology of base \(\otimes\) smooth functions on circle)} Prove that the cohomology of \((\Lambda^{*}_X(M),d_X)\)is isomorphic to \(H^{*}(X)\otimes C^\infty S^1\).
-\item Let \(\frac{d}{dt}\) be the derivative along the circle. Prove that \(\frac{d}{dt}\) commutes with \(d_X\).
-\item Let \(C^\infty_0S^1\) denote the functions wich average to zero. Prove that \(\frac{d}{dt}\) is invertible on \(C^\infty\).
-\item Prove that the kernel and the cokernel of \(H^{*}(X)\otimes C^\infty S^1\xrightarrow{d/dt}H^{*}(X)\otimes C^\infty S^1\) are naturally isomorphic to \(H^{*}(X)\).
-\end{enumerate}
-\end{thing4}
-
-\begin{proof}[Solution]\leavevmode
-\begin{enumerate}
-\item 
-	\iffalse Right so a form \(\alpha\) of the circle bundle is a linear operator on \(TM\). So what is \(TM\). It is a point and a vector, so \((p,e^{it}) \in X \times S^1\) and \((v,r)\in TX \oplus TS^1\). And \(\alpha\) will map \((v,r)\), or some tuple of vectors, to a number.
-
-	I would like to have an expression for \(\alpha\) decomposed as a form on \(X\) and a form on \(S^1\). Well, just as \(T(M)=T(X) \oplus  T(S^1)\) we should have \(T^*(M)=T^*(X)\oplus T^*(S^1)\). And immediately we get that \(\alpha = \omega \oplus \eta\).
-
-	So the cohomology class of \(\alpha\), if it is closed, …
-\fi
-	Now I  remember: it's Künneth formula! As I recall,
-	\[H^*(X \times S^1)=H^{*}(X) \otimes H^*(S^1).\]
-%But what is the cohomology of the circle? It vanishes for \(i>1\), and \(H^1(S^1)=\mathbb{Z}\).
-
-Now I realise: it's the cohomology of the vectors tangent to the fibers of the circle bundle! I think it's the kernel of the map induced by the projection \(\pi:X \times S^1 \to S^1\), namely
-\[T_X(M)=\ker \pi_*=\{v \in TM: \pi_*(v)=0\in TS^1\}\]
-So this will inject in the total bundle:
-\[\begin{tikzcd}0\arrow[r]&T_X(M)\arrow[r]&T(X \times S^1)\arrow[r]&TS^1\arrow[r]&0\end{tikzcd}\]
-Take Grassman algebra functor to get
-\[\begin{tikzcd}0\arrow[r]&\Lambda^{^*}_X(M)\arrow[r]&\Lambda^{*}(M)\arrow[r]&\Lambda^{*}(S^1)\arrow[r]&0\end{tikzcd}\]
-Giving the sequence
-\[\begin{tikzcd}[column sep=small]
-	\cdots\arrow[r]&0\arrow[r]&H^{0}_X(M)\arrow[r]&H^{0}(M)\arrow[r]&H^{0}(S^1)\arrow[r]&\leavevmode
-\end{tikzcd}\]
-\[\begin{tikzcd}[column sep=small]
-	\leavevmode\arrow[r]&H^{1}_X(M)\arrow[r]&H^{1}(M)\arrow[r]&H^{1}(S^1)\arrow[r]&H^{2}_X(M)\arrow[r]&\cdots
-\end{tikzcd}\]
-To compute the cohomology of \(M\) we use Künneth formula:
-\[
-\begin{array}{|c|l|}
-\hline
-p+q & H^{p+q}(M) \\
-\hline
-0 & H^0(X) \otimes H^0(S^1) = H^0(X) \otimes \mathbb{R} \\
-1 & H^1(X) \otimes H^0(S^1) \oplus H^0(X) \otimes H^1(S^1) \\
-  & = H^1(X) \otimes \mathbb{R} \oplus H^0(X) \otimes \mathbb{R} \\
-2 & H^0(X) \otimes H^2(S^1) \oplus H^1(X) \otimes H^1(S^1) \oplus H^2(X) \otimes H^0(S^1) \\
-  & = H^1(X) \otimes \mathbb{R} \oplus H^2(X) \otimes \mathbb{R} \\
-3 & H^3(X) \otimes \mathbb{R} \oplus H^2(X) \otimes \mathbb{R} \\
-4 & H^4(X) \otimes \mathbb{R} \oplus H^3(X) \otimes \mathbb{R} \\
-5 & H^5(X) \oplus \mathbb{R} \oplus H^4(X) \otimes \mathbb{R} \\
-\hline
-\end{array}
-\]
-Giving
-\[\begin{tikzcd}[column sep=small]
-	\cdots\arrow[r]&0\arrow[r]&H^{0}_X(M)\arrow[r]&H^{0}(X) \otimes \mathbb{R}\arrow[r]&H^{0}(S^1)\arrow[r]&\leavevmode
-\end{tikzcd}\]
-\[\begin{tikzcd}[column sep=small]
-	\leavevmode\arrow[r]&H^{1}_X(M)\arrow[r]&H^{1}(X)\otimes \mathbb{R} \oplus  H^{0}(X)\otimes \mathbb{R}\arrow[r]&H^{1}(S^1)\arrow[r]&\cdots
-\end{tikzcd}\]
-\[\begin{tikzcd}[column sep=small]
-	\leavevmode\arrow[r]&H^{2}_X(M)\arrow[r]&H^{1}(X)\otimes \mathbb{R} \oplus  H^{2}(X)\otimes \mathbb{R}\arrow[r]&0\arrow[r]&\cdots
-\end{tikzcd}\]
-\[\begin{tikzcd}[column sep=small]
-	\leavevmode\arrow[r]&H^{3}_X(M)\arrow[r]&H^{3}(X)\otimes \mathbb{R} \oplus  H^{2}(X)\otimes \mathbb{R}\arrow[r]&0\arrow[r]&\cdots
-\end{tikzcd}\]
-
-
-So I wonder how to finish. Perhaps using some spectral sequence?
-
-\iffalse if the sequence
-\[\begin{tikzcd}0\arrow[r]&H^{0}_X(M)\arrow[r]&H^{0}(X)\arrow[r]&\mathbb{R}\end{tikzcd}\]
-gives
-\[H^{0}_X(M)\cong H^{0}(X)\otimes C^\infty S^1\]
-{\color{2}Looks like not.}
-
-\textbf{Note.} Looks like using Serre spectral sequence (adding the hypothesis that \(X\) is simply connected yields \(H^0_X(M)\cong H^0(X) \otimes H^0(S^1)\). So the question of how the smooth functions \(C^\infty S^1\) appear remains a mystery.
-\fi
-\item Here we must think that \(\frac{d}{dt}\) is a derivation \(f \mapsto \frac{df}{dt}\Big|_{t}\), where the latter is actually a smooth function depending on \(t \in S^1\). 
-
-
-	Then I'd like to see \(d_X\) as a derivation, but I don't know how. The following probably doesn't make sense: \(f \mapsto d_Xf\), which is a form, so to get a number I should pair it with a vector field. So actually there \textit{is} a canonical vector field on \(S^1\), say, unit tangent vector field in a fixed direction. This would give me a number, what number?
-
-	The number is: \(d_Xf\left(\frac{d}{dt}\right) =\frac{d f}{d t}dt\left(\frac{d}{dt}\right) =\frac{df}{dt}\Big|_{t}\)
-
-\item (ChatGPT.) First notice that for any \(f \in C^\infty S^1\) the integral of its derivative vanishes by the fundamental theorem of calculus. To construct an inverse define for \(g \in C^\infty S^1\) the primitive \(f(t)=\int_{0}^tg(y)dy\). Then \(\int_{S^1}f(t)dt\) {\color{4}vanishes because…}
-\end{enumerate}
-\end{proof}
-
-\begin{thing4}{Exercise 2.7}[The trivial circle bundle continued]\label{exer:2.7}\leavevmode
-
-\end{thing4}
-
-\begin{thing4}{Exercise 2.8}[MN of trivial circle bundle vanishes for \(X\) compact and \(\theta=\pi^*dt\)]\label{exer:2.8}\leavevmode
-
-\end{thing4}
-
-\end{thing3}
-
-
-
-
-
-
-
-
-
-
-
 
 \end{document}

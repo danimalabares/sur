@@ -584,7 +584,7 @@ Let \(D_t\) be a continuous family of elliptic operators. The map \(t \mapsto \o
 Because we have seen that index is locally constant.
 \end{proof}
 
-\section{Index theorem for elliptic operators on \(C^\infty M\)}
+\subsection{Index theorem for elliptic operators on \(C^\infty M\)}
 
 \begin{thm}\leavevmode
 All elliptic operators on \(C^\infty M\) have index 0.
@@ -595,6 +595,262 @@ All elliptic operators on \(C^\infty M\) have index 0.
 \item \(\operatorname{symb}D\) is a homogeneous function. (by properties of the symbol) we conclude that \(\operatorname{deg}D\) is even.
 \end{enumerate}
 \end{proof}
+
+\section{Lecture 10: Gauduchon metrics}
+
+\subsection{Positive \((1,1)\) and \((n-1,n-1)\)-forms}
+
+\begin{thing5}{Cornerstone result of linear algebra}\leavevmode
+If \(g_0\) is a positive definite scalar product on \(V\) and \(g_1 \in \operatorname{Sym}^2(V^*)\) then there is a basis such that \(g_0\) is the identity matrix and \(g_1\) is a diagonal matrix.
+\end{thing5}
+
+Everyone should know the proof, but we won't do it here. Better off, take a hermitian vector space \((V,I)\). We will modify the previous result so that there exists a basis  \(x_1,\ldots,x_n,y_1,\ldots,y_n\) so that \(I(x_i)=y_i\) and \(I(y_i)=x_i\). The basis is orthonormal with respect to some hermitian metric \(g_0\). Then \(\omega_0=g(I \cdot ,\cdot )=\sum_i x_i \wedge y_i\). That's the identity guy. There's also \(\omega_1=g_1(I\cdot ,\cdot )=\sum_i\alpha_i x_i \wedge y_i\) where \(\alpha_i\) are the eigenvalues of \(g_1 \circ g_0^{-1}\). So that's the diagonal guy.
+
+Moving on. \(\Lambda^{1,1}(V)\) is the space of invariant 2-forms. We say \(\omega \in \Lambda^{ 1,1}_{\mathbb{R}}(V)\) is positive if \(\omega(x,Ix)\geq 0\forall x\). It is \textit{\textbf{strictly positive}} if \(>\). Now, using the previous result we see that positivity is equivalent to \(\omega= \sum \alpha_i x_i \wedge y_i \geq 0\).
+
+There is a pairing
+\[\Lambda^{1,1}(V)\otimes \Lambda^{n-1,n-1}(V)\to \operatorname{Vol}(V)\]
+And looks like also
+\[\Lambda^{1,1}(V)\times \operatorname{Vol} \xrightarrow{\sim}\Lambda^{n-1,n-1}(V).\]
+
+\begin{claim}[Equivalences for Positivity for \(n-1,n-1\) forms]\leavevmode
+Let \(P \in \Lambda^{n-1,n-1}(V)\). TFAE:
+\begin{enumerate}[label=(\roman*)]
+\item \(\exists ! z \)such that \(i_z \operatorname{Vol}=P\). \(z\) is positive as a \((1,1)\)-form.
+\item This one looks like all we did today, an orthonormal basis, \(Ix_i=y_i\).
+\item There's a third one.
+\end{enumerate}
+\end{claim}
+
+\begin{defn}\leavevmode
+An \(n-1,n-1\) form is called \textit{\textbf{positive}} if either of the conditions from the claim hold, and \textit{\textbf{strictly positive}} ``if in the interior".
+\end{defn}
+
+Next is an exercise given to everyone and never solved.
+
+\begin{claim}\leavevmode
+\((n-1)\)th power of positive form is positive, and moreover, the map \(\alpha \mapsto  \alpha^{n-1}\) defines a homeomorphism (bijective continuous invertible) between strictly positive \((1,1)\) and  \((n-1,n-1)\) forms.
+\end{claim}
+
+\begin{proof}\leavevmode
+
+\end{proof}
+
+\begin{remark}[What this is good for]\leavevmode
+We have just proved that the map \(\omega \mapsto  \omega^{n-1}\) defines a homeomorphism from the cone (because we can multiply by nonzero positive numbers) of positive \((1,1)\)-forms and the cone of strictly positive \((n-1,n-1)\)-forms.
+\end{remark}
+
+\subsection{Harnack inequality}
+
+\begin{thm}[Harnack]\leavevmode
+\(L\) elliptic operator, \(\Omega \Subset \Omega_1\), \(L: C^\infty \Omega_1 \to C^\infty \Omega_1\) "Any elliptic eq. has infinitely many solutions". Then \(\exists  C>1\) depending on \(L\), \(\Omega\) and \(\Omega_1\), such that each solution \(Lu=0\) for  \(u\) nonnegative, \(\operatorname{sup}_{\Omega} u \leq  C \operatorname{inf}_{\Omega}U\)
+\end{thm}
+
+
+But we only need the corollary:
+
+\begin{coro}\leavevmode
+if \(u \geq 0\) is a solution of \(Lu=0\) then  \(u>0\).
+\end{coro}
+
+
+\subsection{Gauduchon metrics}
+
+\begin{defn}\leavevmode
+a hermitian form \(\omega\) on an \(n\)-manifold \(M\) is \textit{\textbf{Gauduchon}} if \(d d^c \omega^{n-1}=0\). So that's a top-form. Well the zero top-form.
+\end{defn}
+
+\begin{thm}[Gauduchon]\leavevmode
+\(\omega\) hermitian, then there exists a unique up to a constant function \(\psi>0\) such that \(\psi\omega\) is Gauduchon.
+\end{thm}
+
+\begin{proof}\leavevmode
+So the idea is that \(d d^c\) is always laplacian. It's the trace of…
+\end{proof}
+
+\section{Lecture 11: Bott-Chern cohomology and defect of a complex surface}
+
+\subsection{Bott-Chern cohomology}
+
+\begin{defn}\leavevmode
+\textit{\textbf{Bott-Chern cohomology}} of a complex manifold \(M\) is \(H^{p,q}_{\operatorname{BC}}(M)\) is the cohomology of \(d d^c\) (I think).
+\end{defn}
+
+\begin{remark}\leavevmode
+There is no multiplicative structure on BC cohomology.
+\end{remark}
+
+\begin{thm}\leavevmode
+\(M\) compact complex manifold. \(H^{p,q}_{\operatorname{BC}}(M)\) is finite-dimensional.
+\end{thm}
+
+\begin{proof}\leavevmode
+Later today.
+\end{proof}
+
+\subsection{Elliptic complexes}
+
+\begin{defn}\leavevmode
+\textit{\textbf{Elliptic complex}} of vector bundles is when the symbols of the differentials give an exact sequence (I think).
+\end{defn}
+
+\begin{defn}[Fredholm complex]\leavevmode
+
+\end{defn}
+
+\begin{coro}\leavevmode
+Cohomology of any elliptic complex is finite-dimensional.
+\end{coro}
+
+\begin{thm}\leavevmode
+BC cohomology of a compact complex manifold is finite-dimensional.
+\end{thm}
+
+\begin{proof}\leavevmode
+	(This proof also proved finite-dimensionality of Dolbeaut cohomology.)
+\end{proof}
+
+\subsection{\(d d^c\) lemma}
+
+\begin{thm}[\(d d^c\) lemma]\leavevmode
+\(M\) compact Kähler. \(\eta \in \Lambda^{p,q}(M)\) \(d\)-exact, then \(\eta \in \operatorname{img} d d^c\).
+\end{thm}
+
+% Written by ChatGPT
+\begin{lemma}[\( d d^c \)-Lemma]
+    \textit{(This note was written by ChatGPT.)} 
+    Let \( X \) be a compact complex manifold. The following conditions are equivalent for a differential form \( \alpha \):
+    \begin{enumerate}
+        \item \( \alpha \) is \( d \)-closed and \( d^c \)-exact: \( d \alpha = 0 \) and \( \alpha = d^c \beta \) for some \( \beta \).
+        \item \( \alpha \) is \( d^c \)-closed and \( d \)-exact: \( d^c \alpha = 0 \) and \( \alpha = d \gamma \) for some \( \gamma \).
+        \item \( \alpha \) is \( d d^c \)-exact: there exists \( \eta \) such that \( \alpha = d d^c \eta \).
+    \end{enumerate}
+\end{lemma}
+
+\begin{remark}\leavevmode
+	\(d d^c\) is equivalent to the natural map \(H^*_{\operatorname{BC}}(M) \to H^{*}(M)\) being injective.
+\end{remark}
+
+\subsection{An inequality}
+
+\begin{defn}\leavevmode
+\((M,\omega)\) an hermitian surface. \(\eta \in \Lambda^{1,1}(M)\) is called \textit{\textbf{primitive}} if \(\eta \perp \omega\) everywhere.
+\end{defn}
+
+\begin{thm}\leavevmode
+If \(\alpha \in \Lambda^{1,1}(M)\) is primitive, then
+ \[\frac{\alpha \wedge \alpha}{\operatorname{Vol}}=-\|\alpha\|^2 \iff \alpha \wedge \alpha=-\|\alpha\|^2\operatorname{Vol}\]
+\end{thm}
+
+\begin{proof}\leavevmode
+We can express \(\Lambda^{2}(M)=\Lambda^{+}(M) \oplus \Lambda^{-}(M)\) using the \(1\) and \(-1\) eigenspaces of Hodge star operator. (This is also in \texttt{k3.pdf}; search for ``eigenspeces of the Hodge star operator".)
+\end{proof}
+
+\subsection{Top important statement}
+
+\begin{thm}\leavevmode
+\(M\) compact complex surface. \(p : H^{1,1}_{\operatorname{BC}}(M)\to H^{2}(M)\) standard map. Then \(\dim \ker p \leq 1\). So that kernel is forms that are exact but not Bott-Chern exact.
+\end{thm}
+
+\begin{proof}\leavevmode
+	Consider the operator \(D(f)= d d^c f \wedge \omega\) mapping functions to 4-forms. Because \(D\) is elliptic, we get that \(\operatorname{rk} \operatorname{coker}D=1\). Using Gauduchon form; an integral will vanish!
+\end{proof}
+
+\subsection{The most important invariant of a surface: the defect}
+
+\begin{coro}\leavevmode
+Let \(x \in \ker P\), \(x \neq 0\), then \(\int x\wedge \omega>0\) or \(<0\) for any \(\omega\) Gauduchon. Then a linear combination of \(\omega_1\) and \(\omega_2\) gives a zero integral. But by the previous proof (which I didn't type), the form is exact and it cannot give 0.
+\end{coro}
+
+\begin{proof}\leavevmode
+Suppose there is \(\omega_1\) giving a positive integral and \(\omega_2\) giving a negative integral. 
+\end{proof}
+
+\begin{defn}\leavevmode
+The \textit{\textbf{defect}} of a surface  is the number \(\dim \ker P\). It's denoted \(\delta(M)\). By the previous theorem it can only be 0 or 1. We will show that the surface is  Kähler iff \(\delta(M)=1\).
+\end{defn}
+
+\section{Lecture 12: Cohomology of a complex surface}
+
+\subsection{Lemma 1 (reminder)}
+
+Looks like the key observation is that the orthogonal complement of \(\omega\) is 3-dimensional. What for? To show that there is an explicit form for \(\Lambda^{+}(M)\) and \(\Lambda^{-}(M)\), namely
+\[\Lambda^{+}(M)=\left<\omega_I,\omega_J,\omega_K\right>\qquad \Lambda^{-}(M)=\left<\omega_I,\omega_J,\omega_K\right>^\perp\]
+\begin{thing6}{Quote}[Misha]\leavevmode
+That \(1,1\) forms orthogonal forms to \(\omega\) are \(\Lambda^{-}(M)\).
+\end{thing6}
+That is,
+\begin{thing5}{Lemma 1}\leavevmode
+\[\Lambda^{-}(V)=\{\alpha:I\alpha=\alpha,\alpha \perp \omega\}\]
+where \((V,I)\) is given by \(V=\mathbb{R}^n\), \(I^2=-\operatorname{Id}\), \(g\) an \(I\)-invariant scalar product and \(\Lambda^{2}(V)=\Lambda^{+}(V)\oplus \Lambda^{-}(V)\), and of course \(\omega(x,y)=g(Ix,y)\).
+\end{thing5}
+
+\begin{quotation}
+	It is a useful construction because it allows us to compute because it is an expression of this thing in terms of the complex structure. That's all.
+\end{quotation}
+
+\subsection{Reminder on Bott-Chern cohomology}
+\[H^{p,q}_{\operatorname{BC}}=\frac{\ker d\Big/ \Lambda^{p,q}(M)}{\operatorname{img} d d ^c}\]
+\begin{question}\leavevmode
+What's up with the quotient on the numerator?
+\end{question}
+
+\subsection{New stuff: intersection form on \(H^{1,1}_{\operatorname{BC}}(M)\)}
+
+\begin{prop}\leavevmode
+\(M\) surface with \(\delta(M)>0\).
+
+The intersection form \(\alpha \mapsto  \int\alpha \wedge \alpha\) is negative definite on the image of \(H^{1,1}_{\operatorname{BC}}(M,\mathbb{R})\) in \(H^{2}(M,\mathbb{R})\).
+\end{prop}
+
+\begin{proof}\leavevmode
+because every cohomology can be represented by something that has degree zero and degree zzro is negative definite.
+\end{proof}
+
+And remember that this is a step towards showing that positive defect imples Kähler. Or was it nonKähler?
+
+\subsection{Holomorphic 1-forms on a surface}
+
+\textbf{Introduction.} Surfaces are typically fibrations. Like elliptic fibrations; fibers are tori. So some interesting forms on the surface are pullbacks. And some of this will be holomorphic differentials
+
+\begin{lemma}\leavevmode
+All holomorphic 1-forms on a compact complex surface are closed. That is, \(\alpha \in \Lambda^{1,0}(M)\) holomorphic 1-form, then \(d\alpha=0\).
+\end{lemma}
+
+\begin{proof}\leavevmode
+\(d \alpha= \partial  \alpha \in \Lambda^{ 2,0}(M)\). Then
+\[0 < \int d \alpha \wedge d \bar{\alpha} = \int \partial  \alpha = \bar\partial \bar{ \alpha}\].
+\end{proof}
+
+\begin{thing3}{Claim 1}\leavevmode
+\(\mathcal{H}^{1,1}(M) \oplus  \overline{\mathcal{H}^{1,0}(M)}\hookrightarrow H^{1}(M,\mathbb{C})\)
+\end{thing3}
+
+\begin{proof}\leavevmode
+Also very simple.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \bibliography{bib.bib}
 \end{document}

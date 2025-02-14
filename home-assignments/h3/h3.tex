@@ -14,23 +14,14 @@
 \end{minipage}\vspace{.2cm}\hrule
 
 \vspace{10pt}
-{\huge Home assignment 2: Cohomology of local systems}
+{\huge Home assignment 3: Harmonic functions}
 
-\begin{thing1}{Problem 3.2}\label{prob:3.2}\leavevmode
-Let  \(\eta\) be a harmonic form with compact support on \(\mathbb{R}^n\). Prove that \(\eta=0\).
-\end{thing1}
+Comments after meeting with Lada:
+\begin{itemize}
+\item \(d^* =(-1)^{n(k+1)+1}* d *\).
+\item \(\Delta f= * d * df\)
+\end{itemize}
 
-\begin{proof}[Solution]\leavevmode
-\(\eta\) harmonic form (of weight) \(k<n\). So \(\Delta \eta=0\). Then
-\begin{align*}
-	(\eta,\Delta\eta)&=(\eta,(d^*d+d d^*)\eta)\\
-	&=(\eta,d^*d\eta)+(\eta,d d^*\eta)\\
-	&=(d\eta,d\eta)+(d^*\eta,d^*\eta)
-\end{align*}
-{\color{3}The idea (but it doesn't work)} is to take \(\eta:=d\omega\) {\color{4}(but it won't have compact support)}
-
-
-\textbf{Correct idea:} to use maximum principle twice; once gives you nonnegative and the other one gives you zero (you take the negative… or \(1\) minus the form I think).
-\end{proof}
+\textbf{How to prove mean value for harmonic:} you use exercise 8 to realise that the average of the function on spheres of different radius remains the same. Then you compute the average on the ball as an integral of smaller radius of the integrals on the sphere. Integrating in really small spheres will take you to the value on the point.
 
 \end{document}

@@ -72,6 +72,10 @@ Let \(A_* \xrightarrow{\phi}B_*\) be a morphism of complexes of vector spaces, a
 \textbf{Note:} the indices are different in the answer.
 \end{thing4}
 
+\begin{upshot}\leavevmode
+Functions on circle are just periodic functions on \(\mathbb{R}\).
+\end{upshot}
+
 \begin{proof}[Solution by Lada]\leavevmode
 I realise that
 \[\begin{tikzcd}0\arrow[r]&B_i\arrow[r]&B_i \oplus  A_{i+1}\arrow[r]&A_{i+1}\arrow[r]&0\end{tikzcd}\]
@@ -95,13 +99,24 @@ Let \(X\) be a manifold, \(M:=X \times S^1\), and \(\pi:M \to S^1\) the standard
 \begin{proof}[Solution]\leavevmode
 \begin{enumerate}
 \item 
+\textbf{Solution by Misha.}  The key idea is not to use Künneth formula but to consider differential forms on the product as elements of the tensor product over smooth functions. We are interested in the following complex: it's fiberwise de Rham.
+
+\[\begin{tikzcd}\text{what's the kernel?} \arrow[r]&C^\infty(X \times S^1)\arrow[r,"d"]&\Lambda^{1}(X)\otimes_{C^\infty X}C^\infty M\arrow[r,"d"]&\Lambda^{2}(X)\arrow[r]&0\end{tikzcd}\]
+Something like "what's the sheaf such that this is a resolution", "what's the kernel of the first map"?
+
+Looks like the correct answer is
+\[\mathbb{R}_X \otimes_{C^\infty S^1} C^\infty S^1\]
+so that sheaf. And that gives \(H^{*}(X)\otimes C^\infty S^1\).
+
 	\iffalse Right so a form \(\alpha\) of the circle bundle is a linear operator on \(TM\). So what is \(TM\). It is a point and a vector, so \((p,e^{it}) \in X \times S^1\) and \((v,r)\in TX \oplus TS^1\). And \(\alpha\) will map \((v,r)\), or some tuple of vectors, to a number.
 
 	I would like to have an expression for \(\alpha\) decomposed as a form on \(X\) and a form on \(S^1\). Well, just as \(T(M)=T(X) \oplus  T(S^1)\) we should have \(T^*(M)=T^*(X)\oplus T^*(S^1)\). And immediately we get that \(\alpha = \omega \oplus \eta\).
 
 	So the cohomology class of \(\alpha\), if it is closed, …
 \fi
-	Now I  remember: it's Künneth formula! As I recall,
+\textbf{Dani attempt} 
+
+Now I  remember: it's Künneth formula! As I recall,
 	\[H^*(X \times S^1)=H^{*}(X) \otimes H^*(S^1).\]
 %But what is the cohomology of the circle? It vanishes for \(i>1\), and \(H^1(S^1)=\mathbb{Z}\).
 
@@ -160,7 +175,12 @@ gives
 
 \textbf{Note.} Looks like using Serre spectral sequence (adding the hypothesis that \(X\) is simply connected yields \(H^0_X(M)\cong H^0(X) \otimes H^0(S^1)\). So the question of how the smooth functions \(C^\infty S^1\) appear remains a mystery.
 \fi
-\item Here we must think that \(\frac{d}{dt}\) is a derivation \(f \mapsto \frac{df}{dt}\Big|_{t}\), where the latter is actually a smooth function depending on \(t \in S^1\). 
+\item 
+\textbf{Solution by Misha.} Compute de Rham in coordinates and notice it commutes que \(\frac{d}{dt}\).
+
+\textbf{Dani attempt.} 
+
+	Here we must think that \(\frac{d}{dt}\) is a derivation \(f \mapsto \frac{df}{dt}\Big|_{t}\), where the latter is actually a smooth function depending on \(t \in S^1\). 
 
 
 	Then I'd like to see \(d_X\) as a derivation, but I don't know how. The following probably doesn't make sense: \(f \mapsto d_Xf\), which is a form, so to get a number I should pair it with a vector field. So actually there \textit{is} a canonical vector field on \(S^1\), say, unit tangent vector field in a fixed direction. This would give me a number, what number?
@@ -168,6 +188,11 @@ gives
 	The number is: \(d_Xf\left(\frac{d}{dt}\right) =\frac{d f}{d t}dt\left(\frac{d}{dt}\right) =\frac{df}{dt}\Big|_{t}\)
 
 \item (ChatGPT.) First notice that for any \(f \in C^\infty S^1\) the integral of its derivative vanishes by the fundamental theorem of calculus. To construct an inverse define for \(g \in C^\infty S^1\) the primitive \(f(t)=\int_{0}^tg(y)dy\). Then \(\int_{S^1}f(t)dt\) {\color{4}vanishes because…}
+
+
+\item 
+
+\item Kernel is zero. (Why?) The operator is elliptic, and that's it (Misha). But probably there's a way to just find why it is an isomorphism.
 \end{enumerate}
 \end{proof}
 

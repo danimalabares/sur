@@ -915,5 +915,409 @@ So I'd say:
 …so we have that result, that image of \(\partial \) is image of \(\bar\partial\)
 \end{thing4}
 
+\section{Lecture 13: Currents}
+
+\subsection{Currents and generalized functions}
+
+Currents should be funcionals on volume forms, right? Because the latter a like functions.
+
+\begin{defn}\leavevmode
+\textit{\textbf{Generalized functions (distributions)}} on manifold \(M\) is a functional on functions with compact support, which is continuous in \textit{one}  the \(C^i\) topologies (so probably that means it is continuous in \(C^\infty\) topology), where..
+\end{defn}
+
+\begin{defn}\leavevmode
+Let \(F\) be a Hermitian bundle with connection \(\nabla\), on a Riemannian manifold \(M\) with Levi-Civita connection, and
+\[{\color{6}\|f\|_{C^k}:=\operatorname{sup}_{x \in M}\Big(|f|+|\nabla f|+\ldots+|\nabla^kf|}\]
+the corresponding \({\color{6}C^k}\) \textit{\textbf{norm}}. Defined \textbf{on smooth sections with compact support}. The \(C^k\) topology is independent from the choice of connection and metrics.
+\end{defn}
+
+\begin{remark}[Misha]\leavevmode
+as \(k\) grows there are ( I think) \textit{less} convergent sequence, which means that the set of continuous functional is larger. Yes because if a sequence converges in \(C^k\) then it converges in all \(\ell \leq k\).
+\end{remark}
+
+Right so back to currents, a top form \(v \in \Lambda^{n}(M)\) gives a functional via \(\left<v,f\right>=\int vf\). So also you can just do \(\alpha \in \Lambda^{k}(M)\) and do the functional \(\left<\alpha,\eta\right>=\int \alpha \wedge \eta\) for \(\eta \in \Lambda^{ n-k}(M)\). \textbf{This embeds currents into differential forms.} Or the other way around, yes,
+
+\begin{defn}\leavevmode
+\textit{\textbf{Current}} is functional on \(k\)-forms with compact support, continuous in \(C^i\) for \textit{some} \(i\). The space of currents is \(D^k(M)\). 
+\end{defn}
+
+\begin{remark}\leavevmode
+A volume form gives an isomorphism \(D^0 \cong D^n\).
+\end{remark}
+
+\begin{upshot}[The way to think about currents]\leavevmode
+Currents are the same as differential forms wiht coefficients in generalized functions:
+\[D^0 \otimes_{C^\infty M}\Lambda^{k}(M) \cong D^k(M).\]
+\end{upshot}
+
+So we even get a product between forms and currents.
+
+\subsection{Currents on complex manifolds}
+
+\begin{defn}\leavevmode
+There is a \textit{\textbf{weak topology}} on currents: sequence converges iff it converges on all forms with compact support.
+\end{defn}
+
+\begin{claim}\leavevmode
+De Rham differential is continuous on currents and the cohomologies are the same.
+\end{claim}
+
+The point is that currents gives you resolutions in the same way as de Rham and Dolbeault cohomologies do.
+
+\subsection{Positive forms again}
+
+Do you know this by now? It's a 2-form that the fundamental form associated is a positive (definite? Don't be confused with the french) form. But not only a 2-form: a 1,1 form! Why? From home assignment 5 of k3 course I once convinced myself that 1,1 forms are those that preserve the complex structure in the sense that: \(\eta(Ix,Iy)=\eta(x,y)\)… so probably we need \(1,1\) condition to get that the ``fundamental form" associated to \(\eta\) \textbf{is a riemannian metric}.
+
+\subsection{Riesz representation theorem}
+
+\begin{defn}\leavevmode
+A \textit{\textbf{Borel measure}} is generated from the open sets. It is \(\sigma\)-additive (I think this is good behavious against countable unions). It is called \textit{\textbf{Radon measure}} if it is finite on any compact set.
+\end{defn}
+
+\begin{thm}[Riesz representation theorem]\leavevmode
+Let \(M\) be a metrizable, locally compact topological space, \(C^0_c(M)\) the space of continuous functions with compact support, and \(C^0_c(M)^*\) the space of functionals continuous in uniform topology. Then the Radon measures on \(M\) can be characterized as functionals \(\mu \in C^0_c(M)^*\) which are non negative on all non-negative functions.
+\end{thm}
+
+\begin{proof}\leavevmode
+ One side is obvious: every measure is a functional. To construct a measure from a functional we do it on compact sets.
+\end{proof}
+
+\subsection{Positive currents}
+
+\begin{defn}\leavevmode
+\(\xi \in D^{1,1}_\mathbb{R}(M)\) is \textit{\textbf{positive}} if \(\left<\xi,\tau\right> \geq 0\) \(\forall \tau\) positive with compact support.
+\end{defn}
+
+\begin{thing7}{Super upshot}[What is a measure on a manifold]\leavevmode
+measures are sections of \(D^n(M)=D^0 \otimes \operatorname{Vol}\) where \(\operatorname{Vol}\) is determinant bundle (I'm pretty sure).
+\end{thing7}
+
+\section{Lecture 15: plurisubharmonic}
+
+\subsection{Intro}
+
+\[\begin{tikzcd}
+&\tilde{M}\arrow[dl,"",swap]\arrow[dr]\\
+M_1\arrow[rr]&&M_2
+\end{tikzcd}\]
+Proper holomorphic cover, then \(M_1\) kahler iff \(M_2\) Kähler if \(\dim M \leq  2\).
+
+Proof uses Kähler current: \(\eta \in D^{1,1}(M,\mathbb{R})\), \(d\eta=0\) with \(\eta- \varepsilon \omega \geq 0\) for some hermitian form \(\omega\) (it's not only positive, but more positive than \(\omega\)).
+
+\subsection{Poincaré lemma for $\bar\partial$, ddc lemma}
+
+\begin{defn}\leavevmode
+plurisubharmonic is \(f\) if \(dd^c\) is a positive 1 1 form. strictly if  \(d d ^c\) is Kähler.
+\end{defn}
+
+\begin{lemma}[Poincaré-Grothendieck-Dolbeault]\leavevmode
+	\(\bar\partial\) closed implies \(\bar\partial\) exact.
+\end{lemma}
+
+\begin{coro}[\(d d ^c\) lemma for dim 2 (local ddc lemma?)]\leavevmode
+\(\omega \in \Lambda^{ 11}(\Big).\) \(d\omega=0 \implies  \omega=d d ^c f\).
+\end{coro}
+
+This ddc lemma says that a closed form is ddc of a function!
+
+\subsection{Subharmonic functions}
+
+\begin{defn}\leavevmode
+	\(f \in C^\infty(M,\mathbb{R})\) is called \textit{\textbf{upper semicontinuous}} if \(\operatorname{ l i m s u p}_{z \to z_0} f(z) \leq f(z_0) \). [From René Baire thesis]
+
+A measurable [upper semicontinuous, integrable] function \(f \in C^\infty(\Omega,\mathbb{R})\), \(\Omega \subset M\), is called \textit{\textbf{subharmonic}} if for every open ball with center in \(z_0\) we have that the average of \(f\) in this ball is \(\leq f(z_0)\).
+
+\textit{\textbf{psh}} if it is  sh on all lines of \(\mathbb{C}^n\).
+\end{defn}
+
+\begin{thm}[trivial with nontrivial implication]\leavevmode
+convex function \(\chi: \mathbb{R}^n \to \mathbb{R}\), convex, monotonously nondecreasing in each variable, and \(u_1,\ldots,u_k : \Omega \to \mathbb{R}\) sh, then the composition \(\chi(u_1,\ldots,u_k\) is sh.
+\end{thm}
+
+\begin{proof}\leavevmode
+We approximate with affine functions.
+\end{proof}
+
+\begin{coro}\leavevmode
+If \(u_1,\ldots, u_n\) is psh then so is the sum, the max, and \(\operatorname{log}\left(\sum \operatorname{exp}(u_i)\right) \)
+\end{coro}
+
+\subsection{Pullback and pushforwards}
+
+\begin{defn}\leavevmode
+\(f: X \to Y\) smooth proper map. Define
+\[f:D^k(X) \to D^{k-r}(Y)\]
+,where \(r = \dim X - \dim Y\), 
+\[\left<f_*\phi,\tau\right>=\left<\eta,f^*\tau\right>\]
+where \(\tau\) is any test-form.
+\end{defn}
+
+\begin{claim}\leavevmode
+if \(f\) is a proper submersion then the pushforward of a differential form is a differential form.
+\end{claim}
+
+\subsection{Smoothing kernels}
+
+\begin{defn}\leavevmode
+\(\mu_i: \mathbb{R}^n \to \mathbb{R}^{>0}\) with support on \(B_{r_i}\), a ball with radius \(r_i\) and center in 0. Also \(\int_{\mathbb{R}^n} \mu_i \operatorname{Vol}=1\). \(\mu_i\) is called \textit{\textbf{family of smoothing kernels}} if \(r_i \xrightarrow{i \to \infty}0\).
+
+\textit{\textbf{Convolution with respect to \(\mu_i\)}} is \(\eta \mapsto  \eta \star\mu_i\). Consider \(\pi_1,\pi_2,\pi_\Sigma\) projections \(\mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}^n\) and \(\pi_\Sigma(x,y)=x+y\). We define
+\[\eta \star \mu_i:=(\pi_2)_*(\pi_1^*\eta\wedge\pi_\Sigma ^*(\mu_i\operatorname{Vol})\]
+so its a map that maps a \(k\)-form to a \(k\)-form.
+\end{defn}
+
+\begin{claim}\leavevmode
+\begin{enumerate}
+\item \(\lim_{ \eta\star \mu_i} =\eta\).
+\item \(\eta \star \mu_i\) smooth (when \(\eta\) is invertible cofficient)
+\item \(\eta \to \eta \star \mu_i\) commutes with de Rham, \(\partial ,\bar\partial\)
+\end{enumerate}
+\end{claim}
+
+\begin{proof}\leavevmode
+It commues with de Rham because pullback, multiplication by closed form and pushforward also do.
+\end{proof}
+
+\begin{thm}\leavevmode
+singular sh function is limit of smooth functions.
+\end{thm}
+
+\section{Lecture 16}
+
+\begin{defn}\leavevmode
+A \textit{\textbf{family of smoothing kernels}} is a family of measures \(\mu_i\) on \(\mathbb{R}^n\) with compact support in an open ball \(B_{r_i}\) with center in \(0\), such that \(\int_{\mathbb{R}^n}\mu_i=1\)
+\end{defn}
+
+\begin{claim}\leavevmode
+\(\mu \star \mu_i\) is smooth and \(\lim_{i} (\eta \star\mu_i)=\eta\), and commutes with de Rham
+\end{claim}
+
+\begin{thm}\leavevmode
+\(v \) subharmonic function on a ball \(B_1 \subset \mathbb{R}^n\) centered in 0. Then the average monotonously decreases to \(v(0)\) as  \(r\) decreases to 0, ie. \(r \to \operatorname{ A v}_{B_r}v\) monotonously.
+\end{thm}
+
+\begin{proof}\leavevmode
+Using Green representation formula from homework 3.
+\end{proof}
+
+\begin{remark}\leavevmode
+Think of \(\operatorname{log}|z|\). It is subharmonic and its value at zero is \(- \infty\).
+
+Also think of \(\frac{1}{r^{n-1}}\) on \(\mathbb{R}^n\)
+\end{remark}
+
+\begin{remark}\leavevmode
+In \(\mathbb{R}\), subharmonic is convex.
+\end{remark}
+
+\subsection{A nice family of smoothing kernels}
+
+The family is
+\[\mu_\varepsilon=\varepsilon^{-1}h_\varepsilon ^*\mu_1\]
+where \(\mu_1\) is a nonnegative smooth function on \(\mathbb{R}^n\) which \(\int_{\mathbb{R}^n}\mu_1\operatorname{Vol}=1\), has supprt on open ball.
+
+\begin{thm}\leavevmode
+ \(u\) subharmonic on \(\Omega \subset \mathbb{R}^n \) then \(u \star \mu_\varepsilon \) is monotonous subharmonic and converges to \(u\). In particular, all subharmonic functions are obtained as monotnonous limits of smooth subharmonic functions.
+\end{thm}
+
+\begin{proof}\leavevmode
+\(u \star \mu_\varepsilon\) is clearly subharmonic.
+\end{proof}
+
+\subsection{Plurisubharmonic functions: singular case}
+
+I think Oka was isolated.
+
+\begin{defn}[Lelong, Oka, 1942]\leavevmode
+\(f\) on \(\Omega \subset \mathbb{C}^n\) semicontinuous, measurable (can take values \(-\infty\) but not \(\infty\)), \(f\) restricted to complex line is subharmonic. Then \(f\) is psh.
+\end{defn}
+
+\begin{exercise}\leavevmode
+It's almost obvious: \(d d^c f |_{\text{line} }=\Delta\). Just write in coordinates.
+\end{exercise}
+
+\begin{claim}\leavevmode
+Decreasing limit of psh is psh.
+\end{claim}
+
+\begin{claim}\leavevmode
+\(\sum\) psh is psh, also max and \(\operatorname{log}(\operatorname{exp}(\text{psh} )\).
+\end{claim}
+
+\begin{claim}\leavevmode
+same family of smooth kernels, \(f\) psh, then \(f \star \mu_2\) is psh smooth and converges monotnonously.
+\end{claim}
+
+\section{Lecture 17: Poincaré-Lelong formula and regularization of currents}
+
+\subsection{Intro}
+
+We want to solve \(\Delta G=\delta_0\). Of course you could put \(dd^cG=\delta_0\).
+
+Or maybe try to solve \(\Delta f =g\).
+
+So the method is this: you compute this integral
+\[\int_{\mathbb{R}^n}L_xGg\operatorname{Vol}\]
+and realise it it gives you 
+\[g\]
+And also, it is just
+\[\int L_x \delta_0 g \operatorname{Vol}.\]
+And remember that \(L_x\) is, like in past lectures, translation about \(x \in \mathbb{R}^n\).
+
+\subsection{Cauchy formula}
+
+
+
+\begin{thm}[Cauchy formula]\leavevmode
+\(f \in C^1(\Delta)\). Then \(\forall w \in \Delta\) such that
+\[f(w)=\frac{1}{2\pi \sqrt{-1}}\int_{\partial  \Delta}\frac{f(z)}{z-w}dz{\color{6}-\int_\Delta \frac{ 1}{\pi(z-w)}\frac{\partial  f}{\partial  \bar{z}}\operatorname{Vol}}\]
+where \(\operatorname{Vol}=dz \wedge d\bar{z}\) is the standard volume form.
+\end{thm}
+
+So there is an extra term that vanishes when \(f\) is holomprhic.
+
+\subsection{Poincaré-Lelong formula}
+
+\begin{upshot}\leavevmode
+This says that \(dd^c \operatorname{log}|f|\) is psh.
+\end{upshot}
+
+\begin{thing5}{Poincaré formula}\leavevmode
+
+	\(f\) holomorphic on any complex manifold \(M\). Then \(dd^c \operatorname{log} |f|=\frac{1}{4\pi}[Z]\). (or maybe its \(2\pi\).) Where \(Z\) is the zro set of  \(f\). So  \([Z]\) is the integration current, meaning (by definition of integration current)
+	\[\left<[Z],\tau\right>=\int_Z \tau\]
+\end{thing5}
+
+First, more simple case we proved in class:
+
+\begin{prop}[Poincaré-Lelong formula on \(\mathbb{C}\)]\leavevmode
+Consider the function \(\ell(z):= \operatorname{log} | z|\) on a disk \(\Delta \subset \mathbb{C}\). Then \(\ell\) is psh, and \(dd^c \ell=\delta_0\) (defined as a current \(\left<\delta_0,\tau\right>=\tau_0\).
+\end{prop}
+
+General version:
+
+\begin{thm}[Poincaré-Lelong formula]\leavevmode
+	(What is Poincaré contribution here?) \(f\) holomorphic, then \(\operatorname{log}|f|\) is psh, moreover \(dd^c |f|=\frac{1}{2\pi}[D_f]\) where \([D_f]\) is the integration current of zero divisor of \(f\). (We assume that \(0\) is a regular value.)
+\end{thm}
+
+\begin{thing6}{Idea}\leavevmode
+Every closed subscheme on a complex algebraic variety corresponds to some psh function.
+\end{thing6}
+
+\begin{coro}\leavevmode
+\(f_1,\ldots,f_n\) collection of holomorphic functions on a complex manifold. Then \(\operatorname{log}\left(\sum_{i}e^{u_i}\right) \) is psh.
+\end{coro}
+
+\begin{proof}\leavevmode
+By PL lema, \(u_i=\operatorname{log}|f_i|^2\) is psh. Then \(\operatorname{log}\left(\sum_{i}|f_i|^2\right) =\operatorname{log}\left(\sum_{i}e^{u_i}\right) \) is also psh from past lecture.
+\end{proof}
+
+\subsection{Regularized maximum}
+\begin{upshot}\leavevmode
+We shall learn how we deal with singularities with currents. The Regularized maximum is something that is smooth.
+\end{upshot}
+
+In reality I missed what regularized maximum means. Input is two functions.
+
+\begin{remark}\leavevmode
+\(\mu:\mathbb{R}^2 \to \mathbb{R}\) convex, monotonous functions in both arguments. Then \(f_1,f_2\) psh \(\implies  \mu(f_1,f_2)\) is psh.
+\end{remark}
+
+\begin{defn}\leavevmode
+\textit{\textbf{nef current}} is a limit of smooth, closed, positive currents.
+\end{defn}
+
+\begin{remark}\leavevmode
+A curve is nef in AG sense iff its current of integration is nef. (or maybe only one directino works)
+\end{remark}
+
+\subsection{Lelong sets}
+
+Take a positive current \(\Theta\) on \(M\), and a point \(x \in M\). And let \(\eta_x=dd^c \operatorname{log}\operatorname{dist}x\)
+
+We want to define
+
+\begin{defn}\leavevmode
+\textit{\textbf{Lelong number}} \(\nu_x(\theta)\) is a measure \(\Theta \wedge (\eta_x)^{n-p}\).
+
+\(\left<\mu,x\right>:= \nu_x\theta\)
+\end{defn}
+
+There is a way to decompose (I think any) measure into two parts.
+
+\begin{defn}\leavevmode
+\textit{\textbf{Lelong set}} for \(s>0\) is  
+\[Z( \Theta,s):=\{x \in M : \nu_x(\theta)>s\}\]
+
+\end{defn}
+
+\begin{thm}[Y.T. Siu, 1974]\leavevmode
+For any \(\Theta\) and any \(s>0\), the Lelong set \(Z_s\) is complex analytic.
+\end{thm}
+
+\subsection{The multiplier ideals}
+
+\begin{defn}\leavevmode
+\(f\) a function on \(M\), locally sum of smooth and psh, then \(f\) is called \textit{\textbf{almost psh}}.
+\end{defn}
+
+\begin{defn}\leavevmode
+If you have any line bundle and \(h\) is a metric and \(f\) is almost psh, then \(h e^{-f}\) is called \textit{\textbf{singular metric}} on \(L\).
+\end{defn}
+
+\begin{defn}\leavevmode
+ \((L,e^{-f}h\) line bundle with singular metric, \(I^L_f\) a sheaf of holomorphic sections of \(L\), sections \(L^2\)-integrable, then
+ \[I^L_f \otimes L^{-1} \subset L \otimes L^{-1} \subset \mathcal{O}_M\]
+ 
+\end{defn}
+
+\begin{thm}[Nadel]\leavevmode
+It is a coherent sheaf.
+\end{thm}
+
+\begin{upshot}\leavevmode
+support of multiplier ideal is the same as Lelong set.
+\end{upshot}
+
+
+\subsection{Demailly's regularization theorem}
+
+\begin{defn}\leavevmode
+\(\eta\) is closed \((1,1)\)-current, \(\eta\) has \textit{\textbf{algebraic singularities}} if \(\eta=dd^c \operatorname{log} \sum |f_i|^2+\eta_0\), \(f_i\) smooth, \(\eta_0\) smooth
+\end{defn}
+
+\begin{upshot}\leavevmode
+How to approximate currents with something reasonable: these algebraic (logarithmic) singularities I think they are reasonable.
+\end{upshot}
+
+\begin{thm}[Demailly Regularization Theorem]\leavevmode
+	\(T\) positive closed \((1,1)\)-current on a Kähler manifold \((M,\omega)\) then \(T\) is a limit of currents \(T_k\) with algebraic singularities. And also there exists a sequence \(\varepsilon_i\) that converges to zero and such that \(T_k+ \varepsilon_k \omega\) is positive. And of course  all  \(T_i\) are in the same cohomology class. 
+
+	Finally, for all \(x \in M\), \(\lim \nu_x T_k = \nu_x T\) and convergence is monotonous.
+\end{thm}
+
+\begin{thing6}{Note}\leavevmode
+You can google Demailly Regularization to see all this happening.
+\end{thing6}
+
+\begin{remark}\leavevmode
+The theorem is super difficult.
+\end{remark}
+
+And what we need here is
+
+\begin{coro}\leavevmode
+Current \(T\) with zero Lelong numbers is nef. Which means it is a limit of smooth positive closed.
+\end{coro}
+
+
+
+
+
+
+
+
+
+
 %\bibliography{bib.bib}
 \end{document}

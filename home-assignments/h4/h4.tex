@@ -1,0 +1,63 @@
+\input{/Users/daniel/github/config/preamble.sty}%available at github.com/danimalabares/config
+\input{/Users/daniel/github/config/thms-eng.sty}%available at github.com/danimalabares/config
+
+\setcounter{secnumdepth}{2}
+\bibliographystyle{alpha}
+\begin{document}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		Complex Surfaces \hfill Daniel González Casanova Azuela
+		
+		{\small Prof. Misha Verbitsky\hfill\href{https://github.com/danimalabares/sur}{github.com/danimalabares/sur}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Home assignment 4: Fubini-Study form and its potential}
+
+\begin{thing4}{Exercise 4.3}\label{exer:4.3}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item Consider the function \(|z|^2=z\bar{z}\) on \(\mathbb{C}^*\), and let \(\rho=z \frac{d}{dz}\), where \(z\) is the complex coordinate on \(\mathbb{C}\). Prove that \(\mathsf{Lie}_\rho |z|^2=|z|^2\).
+\item Prove that \(\mathsf{Lie}_\rho(\operatorname{log} |z|^2)=\mathsf{const}\).
+\end{enumerate}
+\end{thing4}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item
+	 \begin{align*}
+	\mathsf{Lie}_\rho |z|^2&=i_\rho d |z|^2 +\cancelto{0}{di_\rho |z|^2}\\
+	&=i_\rho d(z \bar{z})=i_\rho \Big(\bar{z}dz +z \cancelto{0}{d \bar{z}} \Big)\\
+	&=i_\rho( \bar{z}dz=\bar{z}dz\left(z \frac{d}{dz}\right) =\bar{z}z.
+	\end{align*}
+
+\item We have two functions \(f:\mathbb{R}^+ \to \mathbb{R}\) and \(g:\mathbb{R}^2 \to \mathbb{R}\). \(f\) is \(\operatorname{log}\) and \(g=z \bar{z}=x^2+y^2\). Then by definition
+\begin{align*}
+d(f \circ g)&=\frac{\partial }{\partial x}(f \circ g)dx+ \frac{\partial }{\partial y}(f \circ g) dy\\
+&=\frac{df}{dt}\Big|_{g(x,y)}\frac{\partial g}{\partial x}dx+\frac{df}{dt}\Big|_{g(x,y)}\frac{\partial g}{\partial y}dy\\
+&=\operatorname{log}'(x^2+y^2)\frac{\partial }{\partial x}(x^2+y^2)dx+\operatorname{log}'(x^2+y^2)\frac{\partial }{\partial y}(x^2+y^2)dy\\
+&=\frac{1}{x^2+y^2}2xdx+\frac{1}{x^2+y^2}2ydy\\
+&=\frac{2}{x^2+y^2}(xdx+ydy)
+\end{align*}
+$\mathsf{OK}$ now go back to your basic complex geometry knowledge to tell
+\[dz=dx+\sqrt{-1}dy,\qquad d\bar{z}=dx-\sqrt{-1}dy\]
+and
+\[\frac{\partial }{\partial z}=\frac{1}{2}\left(\frac{\partial }{\partial x}-s^{-1}\frac{\partial }{\partial y}\right) ,\qquad \frac{\partial }{\partial \bar{z}}=\frac{1}{2}\left(\frac{\partial }{\partial x}+\sqrt{-1}\frac{\partial }{\partial y}\right) .\]
+which says
+\[dx=\frac{1}{2}\left(dz+d\bar{z}\right) ,\qquad dy=\frac{1}{2\sqrt{-1}}(dz-d\bar{z})\]
+So that our thing of today is
+\begin{align*}
+\frac{2}{x^2+y^2}(xdx+ydy)&=\frac{2}{|z|^2}\Big(\operatorname{Re}z\frac{1}{2}(dz+d\bar{z})+\operatorname{Im}z\frac{1}{2\sqrt{-1}}(dz-d\bar{z})\Big)\\
+			  &=\frac{1}{|z|^2}\Big(\operatorname{Re}z(dz +d\bar{z})+\frac{1}{\sqrt{-1}}\operatorname{Im}z(dz-d\bar{z})\Big)
+\end{align*}
+That is  \(d \operatorname{log}|z|^2\). Now evaluate in \(\rho=z\frac{d}{dz}\):
+\begin{align*}
+d\operatorname{log}|z|^2(\rho)&=\frac{1}{|z|^2}\Big(z\operatorname{Re}z+\frac{1}{\sqrt{-1}}z\operatorname{Im}z\Big)=\frac{z}{|z|^2}\bar{z}=1
+\end{align*}
+
+
+\end{enumerate}
+\end{proof}
+
+\end{document}
